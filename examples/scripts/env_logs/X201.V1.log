@@ -1,0 +1,5602 @@
+joe@joe-ThinkPad-X201:/git/OpenAI/Test$ ls
+gym  test1.py  test_box2d.py  test_classic.py  test.py  test.pyc  test_robot.py
+joe@joe-ThinkPad-X201:/git/OpenAI/Test$ mkdir All
+joe@joe-ThinkPad-X201:/git/OpenAI/Test$ cd All/
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ls
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ cp ../../
+gym/        mujoco-py/  roboschool/ Test/       
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ cp ../../gym/
+bin/                  docs/                 gym/                  README.rst            setup.py              unittest.cfg
+CODE_OF_CONDUCT.rst   examples/             gym.egg-info/         requirements_dev.txt  test.dockerfile       vendor/
+Dockerfile            .git/                 LICENSE.md            requirements.txt      tox.ini               
+.dockerignore         .gitignore            Makefile              scripts/              .travis.yml           
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ cp ../../gym/examples/
+agents/  scripts/ 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ cp ../../gym/examples/agents/
+cem.py             keyboard_agent.py  _policies.py       random_agent.py    
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ cp ../../gym/examples/agents/random_agent.py .
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ls
+random_agent.py
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim random_agent.py 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim random_agent.py 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ python ./random_agent.py 
+INFO: Making new env: CartPole-v0
+WARN: gym.spaces.Box autodetected dtype as <type 'numpy.float32'>. Please provide explicit dtype.
+INFO: Starting new video recorder writing to /tmp/random-agent-results/openaigym.video.0.7887.video000000.mp4
+INFO: Starting new video recorder writing to /tmp/random-agent-results/openaigym.video.0.7887.video000001.mp4
+INFO: Starting new video recorder writing to /tmp/random-agent-results/openaigym.video.0.7887.video000008.mp4
+INFO: Starting new video recorder writing to /tmp/random-agent-results/openaigym.video.0.7887.video000027.mp4
+INFO: Starting new video recorder writing to /tmp/random-agent-results/openaigym.video.0.7887.video000064.mp4
+INFO: Finished writing results. You can upload them to the scoreboard via gym.upload('/tmp/random-agent-results')
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim ../../gym/examples/
+agents/  scripts/ 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ python ../../gym/examples/scripts/sim_env
+usage: sim_env [-h] [--mode {noop,random,static,human}]
+               [--max_steps MAX_STEPS] [--fps FPS] [--once] [--ignore_done]
+               env
+sim_env: error: too few arguments
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ python ../../gym/examples/scripts/sim_env --mode random
+usage: sim_env [-h] [--mode {noop,random,static,human}]
+               [--max_steps MAX_STEPS] [--fps FPS] [--once] [--ignore_done]
+               env
+sim_env: error: too few arguments
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ python ../../gym/examples/scripts/sim_env --mode=random --once --max_steps=10
+usage: sim_env [-h] [--mode {noop,random,static,human}]
+               [--max_steps MAX_STEPS] [--fps FPS] [--once] [--ignore_done]
+               env
+sim_env: error: too few arguments
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim ../../gym/examples/scripts/sim_env 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ python ../../gym/examples/scripts/sim_env env --mode=random --once --max_steps=10
+Traceback (most recent call last):
+  File "../../gym/examples/scripts/sim_env", line 19, in <module>
+    env = envs.make(args.env)
+  File "/git/OpenAI/gym/gym/envs/registration.py", line 167, in make
+    return registry.make(id)
+  File "/git/OpenAI/gym/gym/envs/registration.py", line 118, in make
+    spec = self.spec(id)
+  File "/git/OpenAI/gym/gym/envs/registration.py", line 140, in spec
+    raise error.Error('Attempted to look up malformed environment ID: {}. (Currently all IDs must be of the form {}.)'.format(id.encode('utf-8'), env_id_re.pattern))
+gym.error.Error: Attempted to look up malformed environment ID: env. (Currently all IDs must be of the form ^(?:[\w:-]+\/)?([\w:.-]+)-v(\d+)$.)
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ python ../../gym/examples/scripts/sim_env env --mode random --once --max_steps 10
+Traceback (most recent call last):
+  File "../../gym/examples/scripts/sim_env", line 19, in <module>
+    env = envs.make(args.env)
+  File "/git/OpenAI/gym/gym/envs/registration.py", line 167, in make
+    return registry.make(id)
+  File "/git/OpenAI/gym/gym/envs/registration.py", line 118, in make
+    spec = self.spec(id)
+  File "/git/OpenAI/gym/gym/envs/registration.py", line 140, in spec
+    raise error.Error('Attempted to look up malformed environment ID: {}. (Currently all IDs must be of the form {}.)'.format(id.encode('utf-8'), env_id_re.pattern))
+gym.error.Error: Attempted to look up malformed environment ID: env. (Currently all IDs must be of the form ^(?:[\w:-]+\/)?([\w:.-]+)-v(\d+)$.)
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ python ../../gym/examples/scripts/sim_env env --mode random --once --max_steps 10 --fps 20
+Traceback (most recent call last):
+  File "../../gym/examples/scripts/sim_env", line 19, in <module>
+    env = envs.make(args.env)
+  File "/git/OpenAI/gym/gym/envs/registration.py", line 167, in make
+    return registry.make(id)
+  File "/git/OpenAI/gym/gym/envs/registration.py", line 118, in make
+    spec = self.spec(id)
+  File "/git/OpenAI/gym/gym/envs/registration.py", line 140, in spec
+    raise error.Error('Attempted to look up malformed environment ID: {}. (Currently all IDs must be of the form {}.)'.format(id.encode('utf-8'), env_id_re.pattern))
+gym.error.Error: Attempted to look up malformed environment ID: env. (Currently all IDs must be of the form ^(?:[\w:-]+\/)?([\w:.-]+)-v(\d+)$.)
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ls
+random_agent.py
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim random_agent.py 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ python ../../gym/examples/scripts/sim_env env CartPole-v0 --mode random --once --max_steps 10 --fps 20
+usage: sim_env [-h] [--mode {noop,random,static,human}]
+               [--max_steps MAX_STEPS] [--fps FPS] [--once] [--ignore_done]
+               env
+sim_env: error: unrecognized arguments: CartPole-v0
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ python ../../gym/examples/scripts/sim_env --mode random --once --max_steps 10 --fps 20 env CartPole-v0
+usage: sim_env [-h] [--mode {noop,random,static,human}]
+               [--max_steps MAX_STEPS] [--fps FPS] [--once] [--ignore_done]
+               env
+sim_env: error: unrecognized arguments: CartPole-v0
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ python ../../gym/examples/scripts/sim_env --mode random --once --max_steps 10 --fps 20 env
+Traceback (most recent call last):
+  File "../../gym/examples/scripts/sim_env", line 19, in <module>
+    env = envs.make(args.env)
+  File "/git/OpenAI/gym/gym/envs/registration.py", line 167, in make
+    return registry.make(id)
+  File "/git/OpenAI/gym/gym/envs/registration.py", line 118, in make
+    spec = self.spec(id)
+  File "/git/OpenAI/gym/gym/envs/registration.py", line 140, in spec
+    raise error.Error('Attempted to look up malformed environment ID: {}. (Currently all IDs must be of the form {}.)'.format(id.encode('utf-8'), env_id_re.pattern))
+gym.error.Error: Attempted to look up malformed environment ID: env. (Currently all IDs must be of the form ^(?:[\w:-]+\/)?([\w:.-]+)-v(\d+)$.)
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ python ../../gym/examples/scripts/sim_env --mode random --once --max_steps 10 --fps 20 CartPole-v0
+WARN: gym.spaces.Box autodetected dtype as <type 'numpy.float32'>. Please provide explicit dtype.
+Starting a new trajectory
+Done after 9 steps
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ python ../../gym/examples/scripts/sim_env CartPole-v0
+WARN: gym.spaces.Box autodetected dtype as <type 'numpy.float32'>. Please provide explicit dtype.
+Starting a new trajectory
+Done after 9 steps
+Press enter to continue
+Starting a new trajectory
+Done after 13 steps
+Press enter to continue^CTraceback (most recent call last):
+  File "../../gym/examples/scripts/sim_env", line 64, in <module>
+    raw_input("Press enter to continue")
+KeyboardInterrupt
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ python ../../gym/examples/scripts/sim_env --once CartPole-v0
+WARN: gym.spaces.Box autodetected dtype as <type 'numpy.float32'>. Please provide explicit dtype.
+Starting a new trajectory
+Done after 8 steps
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ls
+random_agent.py
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ cp ../../gym/examples/scripts/sim_env .
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ls
+random_agent.py  sim_env
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim sim_env 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ls -l
+total 8
+-rw-r--r-- 1 joe joe 1742 9月  12 10:09 random_agent.py
+-rwxr-xr-x 1 joe joe 2558 9月  12 10:28 sim_env
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ python ./sim_env
+Acrobot-v1
+WARN: gym.spaces.Box autodetected dtype as <type 'numpy.float32'>. Please provide explicit dtype.
+Starting a new trajectory
+Done after 250 steps
+Press enter to continue^CTraceback (most recent call last):
+  File "./sim_env", line 69, in <module>
+    raw_input("Press enter to continue")
+KeyboardInterrupt
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim sim_env 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ python ./sim_env --once
+Acrobot-v1
+WARN: gym.spaces.Box autodetected dtype as <type 'numpy.float32'>. Please provide explicit dtype.
+Starting a new trajectory
+Done after 250 steps
+AirRaid-ram-v0
+Starting a new trajectory
+Done after 298 steps
+AirRaid-ram-v4
+Starting a new trajectory
+Done after 502 steps
+AirRaid-ramDeterministic-v0
+Starting a new trajectory
+^CTraceback (most recent call last):
+  File "./sim_env", line 48, in <module>
+    time.sleep(1.0/fps)
+KeyboardInterrupt
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ^C
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ^C
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim sim_env 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ python ./sim_env --once
+Acrobot-v1
+WARN: gym.spaces.Box autodetected dtype as <type 'numpy.float32'>. Please provide explicit dtype.
+Starting a new trajectory
+Traceback (most recent call last):
+  File "./sim_env", line 63, in <module>
+    env.render()
+  File "/git/OpenAI/gym/gym/core.py", line 275, in render
+    return self.env.render(mode, **kwargs)
+  File "/git/OpenAI/gym/gym/envs/classic_control/acrobot.py", line 206, in render
+    return self.viewer.render(return_rgb_array = mode=='rgb_array')
+  File "/git/OpenAI/gym/gym/envs/classic_control/rendering.py", line 85, in render
+    self.window.dispatch_events()
+  File "/home/joe/.local/lib/python2.7/site-packages/pyglet/window/xlib/__init__.py", line 875, in dispatch_events
+    0x1ffffff, byref(e)):
+ctypes.ArgumentError: argument 2: <type 'exceptions.TypeError'>: wrong type
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ls
+random_agent.py  sim_env
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim random_agent.py 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim random_agent.py 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim sim_env 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ python ./sim_env --once
+Acrobot-v1
+WARN: gym.spaces.Box autodetected dtype as <type 'numpy.float32'>. Please provide explicit dtype.
+Starting a new trajectory
+Done after 250 steps
+AirRaid-ram-v0
+Starting a new trajectory
+Done after 244 steps
+AirRaid-ram-v4
+Starting a new trajectory
+Done after 247 steps
+AirRaid-ramDeterministic-v0
+Starting a new trajectory
+Done after 786 steps
+AirRaid-ramDeterministic-v4
+Starting a new trajectory
+^CTraceback (most recent call last):
+  File "./sim_env", line 48, in <module>
+    time.sleep(1.0/fps)
+KeyboardInterrupt
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ^C
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ^C
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim sim_env 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ python ./sim_env --once
+Acrobot-v1
+WARN: gym.spaces.Box autodetected dtype as <type 'numpy.float32'>. Please provide explicit dtype.
+Starting a new trajectory
+Done after 250 steps
+AirRaid-ram-v0
+Starting a new trajectory
+Done after 519 steps
+AirRaid-ram-v4
+Starting a new trajectory
+Done after 358 steps
+AirRaid-ramDeterministic-v0
+Starting a new trajectory
+Done after 223 steps
+AirRaid-ramDeterministic-v4
+Starting a new trajectory
+Done after 328 steps
+AirRaid-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 1290 steps
+AirRaid-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 1090 steps
+AirRaid-v0
+Starting a new trajectory
+Done after 295 steps
+AirRaid-v4
+Starting a new trajectory
+Done after 374 steps
+AirRaidDeterministic-v0
+Starting a new trajectory
+Done after 196 steps
+AirRaidDeterministic-v4
+Starting a new trajectory
+Done after 163 steps
+AirRaidNoFrameskip-v0
+Starting a new trajectory
+Done after 730 steps
+AirRaidNoFrameskip-v4
+Starting a new trajectory
+Done after 584 steps
+Alien-ram-v0
+Starting a new trajectory
+Done after 356 steps
+Alien-ram-v4
+Starting a new trajectory
+Done after 392 steps
+Alien-ramDeterministic-v0
+Starting a new trajectory
+Done after 292 steps
+Alien-ramDeterministic-v4
+Starting a new trajectory
+Done after 302 steps
+Alien-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 1532 steps
+Alien-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 1635 steps
+Alien-v0
+Starting a new trajectory
+Done after 351 steps
+Alien-v4
+Starting a new trajectory
+Done after 623 steps
+AlienDeterministic-v0
+Starting a new trajectory
+Done after 322 steps
+AlienDeterministic-v4
+Starting a new trajectory
+Done after 329 steps
+AlienNoFrameskip-v0
+Starting a new trajectory
+Done after 1111 steps
+AlienNoFrameskip-v4
+Starting a new trajectory
+Done after 1191 steps
+Amidar-ram-v0
+Starting a new trajectory
+Done after 378 steps
+Amidar-ram-v4
+Starting a new trajectory
+Done after 426 steps
+Amidar-ramDeterministic-v0
+Starting a new trajectory
+Done after 300 steps
+Amidar-ramDeterministic-v4
+Starting a new trajectory
+Done after 386 steps
+Amidar-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 1247 steps
+Amidar-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 1275 steps
+Amidar-v0
+Starting a new trajectory
+Done after 382 steps
+Amidar-v4
+Starting a new trajectory
+Done after 394 steps
+AmidarDeterministic-v0
+Starting a new trajectory
+Done after 352 steps
+AmidarDeterministic-v4
+Starting a new trajectory
+Done after 308 steps
+AmidarNoFrameskip-v0
+Starting a new trajectory
+Done after 1225 steps
+AmidarNoFrameskip-v4
+Starting a new trajectory
+Done after 1150 steps
+Ant-v2
+Traceback (most recent call last):
+  File "./sim_env", line 23, in <module>
+    env = envs.make(envid)
+  File "/git/OpenAI/gym/gym/envs/registration.py", line 167, in make
+    return registry.make(id)
+  File "/git/OpenAI/gym/gym/envs/registration.py", line 119, in make
+    env = spec.make()
+  File "/git/OpenAI/gym/gym/envs/registration.py", line 85, in make
+    cls = load(self._entry_point)
+  File "/git/OpenAI/gym/gym/envs/registration.py", line 14, in load
+    result = entry_point.load(False)
+  File "/home/joe/.local/lib/python2.7/site-packages/pkg_resources/__init__.py", line 2325, in load
+    return self.resolve()
+  File "/home/joe/.local/lib/python2.7/site-packages/pkg_resources/__init__.py", line 2331, in resolve
+    module = __import__(self.module_name, fromlist=['__name__'], level=0)
+  File "/git/OpenAI/gym/gym/envs/mujoco/__init__.py", line 1, in <module>
+    from gym.envs.mujoco.mujoco_env import MujocoEnv
+  File "/git/OpenAI/gym/gym/envs/mujoco/mujoco_env.py", line 13, in <module>
+    raise error.DependencyNotInstalled("{}. (HINT: you need to install mujoco_py, and also perform the setup instructions here: https://github.com/openai/mujoco-py/.)".format(e))
+gym.error.DependencyNotInstalled: No module named machinery. (HINT: you need to install mujoco_py, and also perform the setup instructions here: https://github.com/openai/mujoco-py/.)
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ./sim_env Ant-v2
+Acrobot-v1
+usage: sim_env [-h] [--mode {noop,random,static,human}]
+               [--max_steps MAX_STEPS] [--fps FPS] [--once] [--ignore_done]
+sim_env: error: unrecognized arguments: Ant-v2
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim sim_env 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ls
+random_agent.py  sim_env
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ cp ../../
+gym/        mujoco-py/  roboschool/ Test/       
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ cp ../../gym/examples/scripts/
+benchmark_runner  list_envs         sim_env           
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ cp ../gym/
+bin/                  docs/                 gym/                  README.rst            setup.py              unittest.cfg
+CODE_OF_CONDUCT.rst   examples/             gym.egg-info/         requirements_dev.txt  test.dockerfile       vendor/
+Dockerfile            .git/                 LICENSE.md            requirements.txt      tox.ini               
+.dockerignore         .gitignore            Makefile              scripts/              .travis.yml           
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ cp ../gym/examples/
+agents/  scripts/ 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ cp ../gym/examples/scripts/
+benchmark_runner  gym_envs.list     list_envs         sim_env           
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ cp ../gym/examples/scripts/gym_envs.list .
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ls
+gym_envs.list  random_agent.py  sim_env
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ cp gym_envs.list gym_finish.list
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ls -l
+total 48
+-rw-r--r-- 1 joe joe 17778 9月  12 11:47 gym_envs.list
+-rw-r--r-- 1 joe joe 17778 9月  12 11:47 gym_finish.list
+-rw-r--r-- 1 joe joe  1742 9月  12 10:09 random_agent.py
+-rwxr-xr-x 1 joe joe  2574 9月  12 10:34 sim_env
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim gym_finish.list 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ls -l
+total 48
+-rw-r--r-- 1 joe joe 17778 9月  12 11:47 gym_envs.list
+-rw-r--r-- 1 joe joe 17040 9月  12 11:48 gym_finish.list
+-rw-r--r-- 1 joe joe  1742 9月  12 10:09 random_agent.py
+-rwxr-xr-x 1 joe joe  2574 9月  12 10:34 sim_env
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ cp gym_envs.list gym_finish.list 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim gym_finish.list 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ls -l
+total 32
+-rw-r--r-- 1 joe joe 17778 9月  12 11:47 gym_envs.list
+-rw-r--r-- 1 joe joe  1782 9月  12 11:49 gym_finish.list
+-rw-r--r-- 1 joe joe  1742 9月  12 10:09 random_agent.py
+-rwxr-xr-x 1 joe joe  2574 9月  12 10:34 sim_env
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim sim_env 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim sim_env 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ls
+gym_envs.list  gym_finish.list  random_agent.py  sim_env
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ls -l
+total 32
+-rw-r--r-- 1 joe joe 17778 9月  12 11:47 gym_envs.list
+-rw-r--r-- 1 joe joe  1782 9月  12 11:49 gym_finish.list
+-rw-r--r-- 1 joe joe  1742 9月  12 10:09 random_agent.py
+-rwxr-xr-x 1 joe joe  2788 9月  12 12:01 sim_env
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ mkdir bak
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ cp gym_finish.list bak/
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ls
+bak  gym_envs.list  gym_finish.list  random_agent.py  sim_env
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ./sim_env --once
+  File "./sim_env", line 16
+    else
+       ^
+SyntaxError: invalid syntax
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim sim_env 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ./sim_env --once
+Acrobot-v1
+envid Acrobot-v1 is in gym_finish.list
+WARN: gym.spaces.Box autodetected dtype as <type 'numpy.float32'>. Please provide explicit dtype.
+Starting a new trajectory
+^CTraceback (most recent call last):
+  File "./sim_env", line 53, in <module>
+    time.sleep(1.0/fps)
+KeyboardInterrupt
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ^C
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ls -l
+total 36
+drwxr-xr-x 2 joe joe  4096 9月  12 12:01 bak
+-rw-r--r-- 1 joe joe 17778 9月  12 11:47 gym_envs.list
+-rw-r--r-- 1 joe joe  1782 9月  12 11:49 gym_finish.list
+-rw-r--r-- 1 joe joe  1742 9月  12 10:09 random_agent.py
+-rwxr-xr-x 1 joe joe  2789 9月  12 12:02 sim_env
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim gym_finish.list 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim sim_env 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim gym_finish.list 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ./sim_env --once
+Acrobot-v1
+envid Acrobot-v1 is in gym_finish.list
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim gym_finish.list 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim sim_env 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ./sim_env --once
+Acrobot-v1
+envid Acrobot-v1 is in gym_finish.list
+AirRaid-ram-v0
+envid AirRaid-ram-v0 is in gym_finish.list
+AirRaid-ram-v4
+envid AirRaid-ram-v4 is in gym_finish.list
+AirRaid-ramDeterministic-v0
+envid AirRaid-ramDeterministic-v0 is in gym_finish.list
+AirRaid-ramDeterministic-v4
+envid AirRaid-ramDeterministic-v4 is in gym_finish.list
+AirRaid-ramNoFrameskip-v0
+envid AirRaid-ramNoFrameskip-v0 is in gym_finish.list
+AirRaid-ramNoFrameskip-v4
+envid AirRaid-ramNoFrameskip-v4 is in gym_finish.list
+AirRaid-v0
+envid AirRaid-v0 is in gym_finish.list
+AirRaid-v4
+envid AirRaid-v4 is in gym_finish.list
+AirRaidDeterministic-v0
+envid AirRaidDeterministic-v0 is in gym_finish.list
+AirRaidDeterministic-v4
+envid AirRaidDeterministic-v4 is in gym_finish.list
+AirRaidNoFrameskip-v0
+envid AirRaidNoFrameskip-v0 is in gym_finish.list
+AirRaidNoFrameskip-v4
+envid AirRaidNoFrameskip-v4 is in gym_finish.list
+Alien-ram-v0
+envid Alien-ram-v0 is in gym_finish.list
+Alien-ram-v4
+envid Alien-ram-v4 is in gym_finish.list
+Alien-ramDeterministic-v0
+envid Alien-ramDeterministic-v0 is in gym_finish.list
+Alien-ramDeterministic-v4
+envid Alien-ramDeterministic-v4 is in gym_finish.list
+Alien-ramNoFrameskip-v0
+envid Alien-ramNoFrameskip-v0 is in gym_finish.list
+Alien-ramNoFrameskip-v4
+envid Alien-ramNoFrameskip-v4 is in gym_finish.list
+Alien-v0
+envid Alien-v0 is in gym_finish.list
+Alien-v4
+envid Alien-v4 is in gym_finish.list
+AlienDeterministic-v0
+envid AlienDeterministic-v0 is in gym_finish.list
+AlienDeterministic-v4
+envid AlienDeterministic-v4 is in gym_finish.list
+AlienNoFrameskip-v0
+envid AlienNoFrameskip-v0 is in gym_finish.list
+AlienNoFrameskip-v4
+envid AlienNoFrameskip-v4 is in gym_finish.list
+Amidar-ram-v0
+envid Amidar-ram-v0 is in gym_finish.list
+Amidar-ram-v4
+envid Amidar-ram-v4 is in gym_finish.list
+Amidar-ramDeterministic-v0
+envid Amidar-ramDeterministic-v0 is in gym_finish.list
+Amidar-ramDeterministic-v4
+envid Amidar-ramDeterministic-v4 is in gym_finish.list
+Amidar-ramNoFrameskip-v0
+envid Amidar-ramNoFrameskip-v0 is in gym_finish.list
+Amidar-ramNoFrameskip-v4
+envid Amidar-ramNoFrameskip-v4 is in gym_finish.list
+Amidar-v0
+envid Amidar-v0 is in gym_finish.list
+Amidar-v4
+envid Amidar-v4 is in gym_finish.list
+AmidarDeterministic-v0
+envid AmidarDeterministic-v0 is in gym_finish.list
+AmidarDeterministic-v4
+envid AmidarDeterministic-v4 is in gym_finish.list
+AmidarNoFrameskip-v0
+envid AmidarNoFrameskip-v0 is in gym_finish.list
+AmidarNoFrameskip-v4
+envid AmidarNoFrameskip-v4 is in gym_finish.list
+Ant-v2
+envid Ant-v2 is in gym_finish.list
+Assault-ram-v0
+envid Assault-ram-v0 is in gym_finish.list
+Assault-ram-v4
+envid Assault-ram-v4 is in gym_finish.list
+Assault-ramDeterministic-v0
+envid Assault-ramDeterministic-v0 is in gym_finish.list
+Assault-ramDeterministic-v4
+envid Assault-ramDeterministic-v4 is in gym_finish.list
+Assault-ramNoFrameskip-v0
+envid Assault-ramNoFrameskip-v0 is in gym_finish.list
+Assault-ramNoFrameskip-v4
+envid Assault-ramNoFrameskip-v4 is in gym_finish.list
+Assault-v0
+envid Assault-v0 is in gym_finish.list
+Assault-v4
+envid Assault-v4 is in gym_finish.list
+AssaultDeterministic-v0
+envid AssaultDeterministic-v0 is in gym_finish.list
+AssaultDeterministic-v4
+envid AssaultDeterministic-v4 is in gym_finish.list
+AssaultNoFrameskip-v0
+envid AssaultNoFrameskip-v0 is in gym_finish.list
+AssaultNoFrameskip-v4
+envid AssaultNoFrameskip-v4 is in gym_finish.list
+Asterix-ram-v0
+envid Asterix-ram-v0 is in gym_finish.list
+Asterix-ram-v4
+envid Asterix-ram-v4 is in gym_finish.list
+Asterix-ramDeterministic-v0
+envid Asterix-ramDeterministic-v0 is in gym_finish.list
+Asterix-ramDeterministic-v4
+envid Asterix-ramDeterministic-v4 is in gym_finish.list
+Asterix-ramNoFrameskip-v0
+envid Asterix-ramNoFrameskip-v0 is in gym_finish.list
+Asterix-ramNoFrameskip-v4
+envid Asterix-ramNoFrameskip-v4 is in gym_finish.list
+Asterix-v0
+envid Asterix-v0 is in gym_finish.list
+Asterix-v4
+envid Asterix-v4 is in gym_finish.list
+AsterixDeterministic-v0
+envid AsterixDeterministic-v0 is in gym_finish.list
+AsterixDeterministic-v4
+envid AsterixDeterministic-v4 is in gym_finish.list
+AsterixNoFrameskip-v0
+envid AsterixNoFrameskip-v0 is in gym_finish.list
+AsterixNoFrameskip-v4
+envid AsterixNoFrameskip-v4 is in gym_finish.list
+Asteroids-ram-v0
+envid Asteroids-ram-v0 is in gym_finish.list
+Asteroids-ram-v4
+envid Asteroids-ram-v4 is in gym_finish.list
+Asteroids-ramDeterministic-v0
+envid Asteroids-ramDeterministic-v0 is in gym_finish.list
+Asteroids-ramDeterministic-v4
+envid Asteroids-ramDeterministic-v4 is in gym_finish.list
+Asteroids-ramNoFrameskip-v0
+envid Asteroids-ramNoFrameskip-v0 is in gym_finish.list
+Asteroids-ramNoFrameskip-v4
+envid Asteroids-ramNoFrameskip-v4 is in gym_finish.list
+Asteroids-v0
+envid Asteroids-v0 is in gym_finish.list
+Asteroids-v4
+envid Asteroids-v4 is in gym_finish.list
+AsteroidsDeterministic-v0
+envid AsteroidsDeterministic-v0 is in gym_finish.list
+AsteroidsDeterministic-v4
+envid AsteroidsDeterministic-v4 is in gym_finish.list
+AsteroidsNoFrameskip-v0
+envid AsteroidsNoFrameskip-v0 is in gym_finish.list
+AsteroidsNoFrameskip-v4
+envid AsteroidsNoFrameskip-v4 is in gym_finish.list
+Atlantis-ram-v0
+envid Atlantis-ram-v0 is in gym_finish.list
+Atlantis-ram-v4
+envid Atlantis-ram-v4 is in gym_finish.list
+Atlantis-ramDeterministic-v0
+envid Atlantis-ramDeterministic-v0 is in gym_finish.list
+Atlantis-ramDeterministic-v4
+envid Atlantis-ramDeterministic-v4 is in gym_finish.list
+Atlantis-ramNoFrameskip-v0
+envid Atlantis-ramNoFrameskip-v0 is in gym_finish.list
+Atlantis-ramNoFrameskip-v4
+envid Atlantis-ramNoFrameskip-v4 is in gym_finish.list
+Atlantis-v0
+envid Atlantis-v0 is in gym_finish.list
+Atlantis-v4
+envid Atlantis-v4 is in gym_finish.list
+AtlantisDeterministic-v0
+envid AtlantisDeterministic-v0 is in gym_finish.list
+AtlantisDeterministic-v4
+envid AtlantisDeterministic-v4 is in gym_finish.list
+AtlantisNoFrameskip-v0
+envid AtlantisNoFrameskip-v0 is in gym_finish.list
+AtlantisNoFrameskip-v4
+envid AtlantisNoFrameskip-v4 is in gym_finish.list
+BankHeist-ram-v0
+Starting a new trajectory
+Done after 491 steps
+BankHeist-ram-v4
+Starting a new trajectory
+Done after 323 steps
+BankHeist-ramDeterministic-v0
+Starting a new trajectory
+Done after 396 steps
+BankHeist-ramDeterministic-v4
+Starting a new trajectory
+Done after 200 steps
+BankHeist-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 811 steps
+BankHeist-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 735 steps
+BankHeist-v0
+Starting a new trajectory
+Done after 458 steps
+BankHeist-v4
+Starting a new trajectory
+Done after 403 steps
+BankHeistDeterministic-v0
+Starting a new trajectory
+Done after 391 steps
+BankHeistDeterministic-v4
+Starting a new trajectory
+Done after 286 steps
+BankHeistNoFrameskip-v0
+Starting a new trajectory
+^CTraceback (most recent call last):
+  File "./sim_env", line 54, in <module>
+    time.sleep(1.0/fps)
+KeyboardInterrupt
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ls -l
+total 36
+drwxr-xr-x 2 joe joe  4096 9月  12 12:01 bak
+-rw-r--r-- 1 joe joe 17778 9月  12 11:47 gym_envs.list
+-rw-r--r-- 1 joe joe  1799 9月  12 12:08 gym_finish.list
+-rw-r--r-- 1 joe joe  1742 9月  12 10:09 random_agent.py
+-rwxr-xr-x 1 joe joe  2850 9月  12 12:08 sim_env
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ cat gym_finish.list 
+Acrobot-v1
+AirRaid-ram-v0
+AirRaid-ram-v4
+AirRaid-ramDeterministic-v0
+AirRaid-ramDeterministic-v4
+AirRaid-ramNoFrameskip-v0
+AirRaid-ramNoFrameskip-v4
+AirRaid-v0
+AirRaid-v4
+AirRaidDeterministic-v0
+AirRaidDeterministic-v4
+AirRaidNoFrameskip-v0
+AirRaidNoFrameskip-v4
+Alien-ram-v0
+Alien-ram-v4
+Alien-ramDeterministic-v0
+Alien-ramDeterministic-v4
+Alien-ramNoFrameskip-v0
+Alien-ramNoFrameskip-v4
+Alien-v0
+Alien-v4
+AlienDeterministic-v0
+AlienDeterministic-v4
+AlienNoFrameskip-v0
+AlienNoFrameskip-v4
+Amidar-ram-v0
+Amidar-ram-v4
+Amidar-ramDeterministic-v0
+Amidar-ramDeterministic-v4
+Amidar-ramNoFrameskip-v0
+Amidar-ramNoFrameskip-v4
+Amidar-v0
+Amidar-v4
+AmidarDeterministic-v0
+AmidarDeterministic-v4
+AmidarNoFrameskip-v0
+AmidarNoFrameskip-v4
+Ant-v2
+Assault-ram-v0
+Assault-ram-v4
+Assault-ramDeterministic-v0
+Assault-ramDeterministic-v4
+Assault-ramNoFrameskip-v0
+Assault-ramNoFrameskip-v4
+Assault-v0
+Assault-v4
+AssaultDeterministic-v0
+AssaultDeterministic-v4
+AssaultNoFrameskip-v0
+AssaultNoFrameskip-v4
+Asterix-ram-v0
+Asterix-ram-v4
+Asterix-ramDeterministic-v0
+Asterix-ramDeterministic-v4
+Asterix-ramNoFrameskip-v0
+Asterix-ramNoFrameskip-v4
+Asterix-v0
+Asterix-v4
+AsterixDeterministic-v0
+AsterixDeterministic-v4
+AsterixNoFrameskip-v0
+AsterixNoFrameskip-v4
+Asteroids-ram-v0
+Asteroids-ram-v4
+Asteroids-ramDeterministic-v0
+Asteroids-ramDeterministic-v4
+Asteroids-ramNoFrameskip-v0
+Asteroids-ramNoFrameskip-v4
+Asteroids-v0
+Asteroids-v4
+AsteroidsDeterministic-v0
+AsteroidsDeterministic-v4
+AsteroidsNoFrameskip-v0
+AsteroidsNoFrameskip-v4
+Atlantis-ram-v0
+Atlantis-ram-v4
+Atlantis-ramDeterministic-v0
+Atlantis-ramDeterministic-v4
+Atlantis-ramNoFrameskip-v0
+Atlantis-ramNoFrameskip-v4
+Atlantis-v0
+Atlantis-v4
+AtlantisDeterministic-v0
+AtlantisDeterministic-v4
+AtlantisNoFrameskip-v0
+AtlantisNoFrameskip-v4
+BankHeist-ram-v0
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ cat gym_finish.list 
+Acrobot-v1
+AirRaid-ram-v0
+AirRaid-ram-v4
+AirRaid-ramDeterministic-v0
+AirRaid-ramDeterministic-v4
+AirRaid-ramNoFrameskip-v0
+AirRaid-ramNoFrameskip-v4
+AirRaid-v0
+AirRaid-v4
+AirRaidDeterministic-v0
+AirRaidDeterministic-v4
+AirRaidNoFrameskip-v0
+AirRaidNoFrameskip-v4
+Alien-ram-v0
+Alien-ram-v4
+Alien-ramDeterministic-v0
+Alien-ramDeterministic-v4
+Alien-ramNoFrameskip-v0
+Alien-ramNoFrameskip-v4
+Alien-v0
+Alien-v4
+AlienDeterministic-v0
+AlienDeterministic-v4
+AlienNoFrameskip-v0
+AlienNoFrameskip-v4
+Amidar-ram-v0
+Amidar-ram-v4
+Amidar-ramDeterministic-v0
+Amidar-ramDeterministic-v4
+Amidar-ramNoFrameskip-v0
+Amidar-ramNoFrameskip-v4
+Amidar-v0
+Amidar-v4
+AmidarDeterministic-v0
+AmidarDeterministic-v4
+AmidarNoFrameskip-v0
+AmidarNoFrameskip-v4
+Ant-v2
+Assault-ram-v0
+Assault-ram-v4
+Assault-ramDeterministic-v0
+Assault-ramDeterministic-v4
+Assault-ramNoFrameskip-v0
+Assault-ramNoFrameskip-v4
+Assault-v0
+Assault-v4
+AssaultDeterministic-v0
+AssaultDeterministic-v4
+AssaultNoFrameskip-v0
+AssaultNoFrameskip-v4
+Asterix-ram-v0
+Asterix-ram-v4
+Asterix-ramDeterministic-v0
+Asterix-ramDeterministic-v4
+Asterix-ramNoFrameskip-v0
+Asterix-ramNoFrameskip-v4
+Asterix-v0
+Asterix-v4
+AsterixDeterministic-v0
+AsterixDeterministic-v4
+AsterixNoFrameskip-v0
+AsterixNoFrameskip-v4
+Asteroids-ram-v0
+Asteroids-ram-v4
+Asteroids-ramDeterministic-v0
+Asteroids-ramDeterministic-v4
+Asteroids-ramNoFrameskip-v0
+Asteroids-ramNoFrameskip-v4
+Asteroids-v0
+Asteroids-v4
+AsteroidsDeterministic-v0
+AsteroidsDeterministic-v4
+AsteroidsNoFrameskip-v0
+AsteroidsNoFrameskip-v4
+Atlantis-ram-v0
+Atlantis-ram-v4
+Atlantis-ramDeterministic-v0
+Atlantis-ramDeterministic-v4
+Atlantis-ramNoFrameskip-v0
+Atlantis-ramNoFrameskip-v4
+Atlantis-v0
+Atlantis-v4
+AtlantisDeterministic-v0
+AtlantisDeterministic-v4
+AtlantisNoFrameskip-v0
+AtlantisNoFrameskip-v4
+BankHeist-ram-v0
+BankHeist-ram-v4
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ cat gym_finish.list 
+Acrobot-v1
+AirRaid-ram-v0
+AirRaid-ram-v4
+AirRaid-ramDeterministic-v0
+AirRaid-ramDeterministic-v4
+AirRaid-ramNoFrameskip-v0
+AirRaid-ramNoFrameskip-v4
+AirRaid-v0
+AirRaid-v4
+AirRaidDeterministic-v0
+AirRaidDeterministic-v4
+AirRaidNoFrameskip-v0
+AirRaidNoFrameskip-v4
+Alien-ram-v0
+Alien-ram-v4
+Alien-ramDeterministic-v0
+Alien-ramDeterministic-v4
+Alien-ramNoFrameskip-v0
+Alien-ramNoFrameskip-v4
+Alien-v0
+Alien-v4
+AlienDeterministic-v0
+AlienDeterministic-v4
+AlienNoFrameskip-v0
+AlienNoFrameskip-v4
+Amidar-ram-v0
+Amidar-ram-v4
+Amidar-ramDeterministic-v0
+Amidar-ramDeterministic-v4
+Amidar-ramNoFrameskip-v0
+Amidar-ramNoFrameskip-v4
+Amidar-v0
+Amidar-v4
+AmidarDeterministic-v0
+AmidarDeterministic-v4
+AmidarNoFrameskip-v0
+AmidarNoFrameskip-v4
+Ant-v2
+Assault-ram-v0
+Assault-ram-v4
+Assault-ramDeterministic-v0
+Assault-ramDeterministic-v4
+Assault-ramNoFrameskip-v0
+Assault-ramNoFrameskip-v4
+Assault-v0
+Assault-v4
+AssaultDeterministic-v0
+AssaultDeterministic-v4
+AssaultNoFrameskip-v0
+AssaultNoFrameskip-v4
+Asterix-ram-v0
+Asterix-ram-v4
+Asterix-ramDeterministic-v0
+Asterix-ramDeterministic-v4
+Asterix-ramNoFrameskip-v0
+Asterix-ramNoFrameskip-v4
+Asterix-v0
+Asterix-v4
+AsterixDeterministic-v0
+AsterixDeterministic-v4
+AsterixNoFrameskip-v0
+AsterixNoFrameskip-v4
+Asteroids-ram-v0
+Asteroids-ram-v4
+Asteroids-ramDeterministic-v0
+Asteroids-ramDeterministic-v4
+Asteroids-ramNoFrameskip-v0
+Asteroids-ramNoFrameskip-v4
+Asteroids-v0
+Asteroids-v4
+AsteroidsDeterministic-v0
+AsteroidsDeterministic-v4
+AsteroidsNoFrameskip-v0
+AsteroidsNoFrameskip-v4
+Atlantis-ram-v0
+Atlantis-ram-v4
+Atlantis-ramDeterministic-v0
+Atlantis-ramDeterministic-v4
+Atlantis-ramNoFrameskip-v0
+Atlantis-ramNoFrameskip-v4
+Atlantis-v0
+Atlantis-v4
+AtlantisDeterministic-v0
+AtlantisDeterministic-v4
+AtlantisNoFrameskip-v0
+AtlantisNoFrameskip-v4
+BankHeist-ram-v0
+BankHeist-ram-v4
+BankHeist-ramDeterministic-v0
+BankHeist-ramDeterministic-v4
+BankHeist-ramNoFrameskip-v0
+BankHeist-ramNoFrameskip-v4
+BankHeist-v0
+BankHeist-v4
+BankHeistDeterministic-v0
+BankHeistDeterministic-v4
+BankHeistNoFrameskip-v0
+BankHeistNoFrameskip-v4
+BattleZone-ram-v0
+BattleZone-ram-v4
+BattleZone-ramDeterministic-v0
+BattleZone-ramDeterministic-v4
+BattleZone-ramNoFrameskip-v0
+BattleZone-ramNoFrameskip-v4
+BattleZone-v0
+BattleZone-v4
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ cat gym_finish.list 
+Acrobot-v1
+AirRaid-ram-v0
+AirRaid-ram-v4
+AirRaid-ramDeterministic-v0
+AirRaid-ramDeterministic-v4
+AirRaid-ramNoFrameskip-v0
+AirRaid-ramNoFrameskip-v4
+AirRaid-v0
+AirRaid-v4
+AirRaidDeterministic-v0
+AirRaidDeterministic-v4
+AirRaidNoFrameskip-v0
+AirRaidNoFrameskip-v4
+Alien-ram-v0
+Alien-ram-v4
+Alien-ramDeterministic-v0
+Alien-ramDeterministic-v4
+Alien-ramNoFrameskip-v0
+Alien-ramNoFrameskip-v4
+Alien-v0
+Alien-v4
+AlienDeterministic-v0
+AlienDeterministic-v4
+AlienNoFrameskip-v0
+AlienNoFrameskip-v4
+Amidar-ram-v0
+Amidar-ram-v4
+Amidar-ramDeterministic-v0
+Amidar-ramDeterministic-v4
+Amidar-ramNoFrameskip-v0
+Amidar-ramNoFrameskip-v4
+Amidar-v0
+Amidar-v4
+AmidarDeterministic-v0
+AmidarDeterministic-v4
+AmidarNoFrameskip-v0
+AmidarNoFrameskip-v4
+Ant-v2
+Assault-ram-v0
+Assault-ram-v4
+Assault-ramDeterministic-v0
+Assault-ramDeterministic-v4
+Assault-ramNoFrameskip-v0
+Assault-ramNoFrameskip-v4
+Assault-v0
+Assault-v4
+AssaultDeterministic-v0
+AssaultDeterministic-v4
+AssaultNoFrameskip-v0
+AssaultNoFrameskip-v4
+Asterix-ram-v0
+Asterix-ram-v4
+Asterix-ramDeterministic-v0
+Asterix-ramDeterministic-v4
+Asterix-ramNoFrameskip-v0
+Asterix-ramNoFrameskip-v4
+Asterix-v0
+Asterix-v4
+AsterixDeterministic-v0
+AsterixDeterministic-v4
+AsterixNoFrameskip-v0
+AsterixNoFrameskip-v4
+Asteroids-ram-v0
+Asteroids-ram-v4
+Asteroids-ramDeterministic-v0
+Asteroids-ramDeterministic-v4
+Asteroids-ramNoFrameskip-v0
+Asteroids-ramNoFrameskip-v4
+Asteroids-v0
+Asteroids-v4
+AsteroidsDeterministic-v0
+AsteroidsDeterministic-v4
+AsteroidsNoFrameskip-v0
+AsteroidsNoFrameskip-v4
+Atlantis-ram-v0
+Atlantis-ram-v4
+Atlantis-ramDeterministic-v0
+Atlantis-ramDeterministic-v4
+Atlantis-ramNoFrameskip-v0
+Atlantis-ramNoFrameskip-v4
+Atlantis-v0
+Atlantis-v4
+AtlantisDeterministic-v0
+AtlantisDeterministic-v4
+AtlantisNoFrameskip-v0
+AtlantisNoFrameskip-v4
+BankHeist-ram-v0
+BankHeist-ram-v4
+BankHeist-ramDeterministic-v0
+BankHeist-ramDeterministic-v4
+BankHeist-ramNoFrameskip-v0
+BankHeist-ramNoFrameskip-v4
+BankHeist-v0
+BankHeist-v4
+BankHeistDeterministic-v0
+BankHeistDeterministic-v4
+BankHeistNoFrameskip-v0
+BankHeistNoFrameskip-v4
+BattleZone-ram-v0
+BattleZone-ram-v4
+BattleZone-ramDeterministic-v0
+BattleZone-ramDeterministic-v4
+BattleZone-ramNoFrameskip-v0
+BattleZone-ramNoFrameskip-v4
+BattleZone-v0
+BattleZone-v4
+BattleZoneDeterministic-v0
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ls
+bak  gym_envs.list  gym_finish.list  random_agent.py  sim_env
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim gym_finish.list 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim gym_envs.list 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ls -l
+total 36
+drwxr-xr-x 2 joe joe  4096 9月  12 12:01 bak
+-rw-r--r-- 1 joe joe 17778 9月  12 11:47 gym_envs.list
+-rw-r--r-- 1 joe joe  2929 9月  12 12:20 gym_finish.list
+-rw-r--r-- 1 joe joe  1742 9月  12 10:09 random_agent.py
+-rwxr-xr-x 1 joe joe  2850 9月  12 12:08 sim_env
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ mkdir OK
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ cp gym_
+gym_envs.list    gym_finish.list  
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ cp gym_*.list OK/
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ls
+bak  gym_envs.list  gym_finish.list  OK  random_agent.py  sim_env
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ls OK/
+gym_envs.list  gym_finish.list
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim gym_unsupport.list
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ls
+bak  gym_envs.list  gym_finish.list  gym_unsupport.list  OK  random_agent.py  sim_env
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ cp gym_unsupport.list OK/
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ls
+bak  gym_envs.list  gym_finish.list  gym_unsupport.list  OK  random_agent.py  sim_env
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ vim sim_env 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ 
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ls
+bak  gym_envs.list  gym_finish.list  gym_unsupport.list  OK  random_agent.py  sim_env
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ./sim_env --once
+Acrobot-v1
+envid Acrobot-v1 is in gym_finish.list
+AirRaid-ram-v0
+envid AirRaid-ram-v0 is in gym_finish.list
+AirRaid-ram-v4
+envid AirRaid-ram-v4 is in gym_finish.list
+AirRaid-ramDeterministic-v0
+envid AirRaid-ramDeterministic-v0 is in gym_finish.list
+AirRaid-ramDeterministic-v4
+envid AirRaid-ramDeterministic-v4 is in gym_finish.list
+AirRaid-ramNoFrameskip-v0
+envid AirRaid-ramNoFrameskip-v0 is in gym_finish.list
+AirRaid-ramNoFrameskip-v4
+envid AirRaid-ramNoFrameskip-v4 is in gym_finish.list
+AirRaid-v0
+envid AirRaid-v0 is in gym_finish.list
+AirRaid-v4
+envid AirRaid-v4 is in gym_finish.list
+AirRaidDeterministic-v0
+envid AirRaidDeterministic-v0 is in gym_finish.list
+AirRaidDeterministic-v4
+envid AirRaidDeterministic-v4 is in gym_finish.list
+AirRaidNoFrameskip-v0
+envid AirRaidNoFrameskip-v0 is in gym_finish.list
+AirRaidNoFrameskip-v4
+envid AirRaidNoFrameskip-v4 is in gym_finish.list
+Alien-ram-v0
+envid Alien-ram-v0 is in gym_finish.list
+Alien-ram-v4
+envid Alien-ram-v4 is in gym_finish.list
+Alien-ramDeterministic-v0
+envid Alien-ramDeterministic-v0 is in gym_finish.list
+Alien-ramDeterministic-v4
+envid Alien-ramDeterministic-v4 is in gym_finish.list
+Alien-ramNoFrameskip-v0
+envid Alien-ramNoFrameskip-v0 is in gym_finish.list
+Alien-ramNoFrameskip-v4
+envid Alien-ramNoFrameskip-v4 is in gym_finish.list
+Alien-v0
+envid Alien-v0 is in gym_finish.list
+Alien-v4
+envid Alien-v4 is in gym_finish.list
+AlienDeterministic-v0
+envid AlienDeterministic-v0 is in gym_finish.list
+AlienDeterministic-v4
+envid AlienDeterministic-v4 is in gym_finish.list
+AlienNoFrameskip-v0
+envid AlienNoFrameskip-v0 is in gym_finish.list
+AlienNoFrameskip-v4
+envid AlienNoFrameskip-v4 is in gym_finish.list
+Amidar-ram-v0
+envid Amidar-ram-v0 is in gym_finish.list
+Amidar-ram-v4
+envid Amidar-ram-v4 is in gym_finish.list
+Amidar-ramDeterministic-v0
+envid Amidar-ramDeterministic-v0 is in gym_finish.list
+Amidar-ramDeterministic-v4
+envid Amidar-ramDeterministic-v4 is in gym_finish.list
+Amidar-ramNoFrameskip-v0
+envid Amidar-ramNoFrameskip-v0 is in gym_finish.list
+Amidar-ramNoFrameskip-v4
+envid Amidar-ramNoFrameskip-v4 is in gym_finish.list
+Amidar-v0
+envid Amidar-v0 is in gym_finish.list
+Amidar-v4
+envid Amidar-v4 is in gym_finish.list
+AmidarDeterministic-v0
+envid AmidarDeterministic-v0 is in gym_finish.list
+AmidarDeterministic-v4
+envid AmidarDeterministic-v4 is in gym_finish.list
+AmidarNoFrameskip-v0
+envid AmidarNoFrameskip-v0 is in gym_finish.list
+AmidarNoFrameskip-v4
+envid AmidarNoFrameskip-v4 is in gym_finish.list
+Ant-v2
+envid Ant-v2 is in gym_unsupport list
+Assault-ram-v0
+envid Assault-ram-v0 is in gym_finish.list
+Assault-ram-v4
+envid Assault-ram-v4 is in gym_finish.list
+Assault-ramDeterministic-v0
+envid Assault-ramDeterministic-v0 is in gym_finish.list
+Assault-ramDeterministic-v4
+envid Assault-ramDeterministic-v4 is in gym_finish.list
+Assault-ramNoFrameskip-v0
+envid Assault-ramNoFrameskip-v0 is in gym_finish.list
+Assault-ramNoFrameskip-v4
+envid Assault-ramNoFrameskip-v4 is in gym_finish.list
+Assault-v0
+envid Assault-v0 is in gym_finish.list
+Assault-v4
+envid Assault-v4 is in gym_finish.list
+AssaultDeterministic-v0
+envid AssaultDeterministic-v0 is in gym_finish.list
+AssaultDeterministic-v4
+envid AssaultDeterministic-v4 is in gym_finish.list
+AssaultNoFrameskip-v0
+envid AssaultNoFrameskip-v0 is in gym_finish.list
+AssaultNoFrameskip-v4
+envid AssaultNoFrameskip-v4 is in gym_finish.list
+Asterix-ram-v0
+envid Asterix-ram-v0 is in gym_finish.list
+Asterix-ram-v4
+envid Asterix-ram-v4 is in gym_finish.list
+Asterix-ramDeterministic-v0
+envid Asterix-ramDeterministic-v0 is in gym_finish.list
+Asterix-ramDeterministic-v4
+envid Asterix-ramDeterministic-v4 is in gym_finish.list
+Asterix-ramNoFrameskip-v0
+envid Asterix-ramNoFrameskip-v0 is in gym_finish.list
+Asterix-ramNoFrameskip-v4
+envid Asterix-ramNoFrameskip-v4 is in gym_finish.list
+Asterix-v0
+envid Asterix-v0 is in gym_finish.list
+Asterix-v4
+envid Asterix-v4 is in gym_finish.list
+AsterixDeterministic-v0
+envid AsterixDeterministic-v0 is in gym_finish.list
+AsterixDeterministic-v4
+envid AsterixDeterministic-v4 is in gym_finish.list
+AsterixNoFrameskip-v0
+envid AsterixNoFrameskip-v0 is in gym_finish.list
+AsterixNoFrameskip-v4
+envid AsterixNoFrameskip-v4 is in gym_finish.list
+Asteroids-ram-v0
+envid Asteroids-ram-v0 is in gym_finish.list
+Asteroids-ram-v4
+envid Asteroids-ram-v4 is in gym_finish.list
+Asteroids-ramDeterministic-v0
+envid Asteroids-ramDeterministic-v0 is in gym_finish.list
+Asteroids-ramDeterministic-v4
+envid Asteroids-ramDeterministic-v4 is in gym_finish.list
+Asteroids-ramNoFrameskip-v0
+envid Asteroids-ramNoFrameskip-v0 is in gym_finish.list
+Asteroids-ramNoFrameskip-v4
+envid Asteroids-ramNoFrameskip-v4 is in gym_finish.list
+Asteroids-v0
+envid Asteroids-v0 is in gym_finish.list
+Asteroids-v4
+envid Asteroids-v4 is in gym_finish.list
+AsteroidsDeterministic-v0
+envid AsteroidsDeterministic-v0 is in gym_finish.list
+AsteroidsDeterministic-v4
+envid AsteroidsDeterministic-v4 is in gym_finish.list
+AsteroidsNoFrameskip-v0
+envid AsteroidsNoFrameskip-v0 is in gym_finish.list
+AsteroidsNoFrameskip-v4
+envid AsteroidsNoFrameskip-v4 is in gym_finish.list
+Atlantis-ram-v0
+envid Atlantis-ram-v0 is in gym_finish.list
+Atlantis-ram-v4
+envid Atlantis-ram-v4 is in gym_finish.list
+Atlantis-ramDeterministic-v0
+envid Atlantis-ramDeterministic-v0 is in gym_finish.list
+Atlantis-ramDeterministic-v4
+envid Atlantis-ramDeterministic-v4 is in gym_finish.list
+Atlantis-ramNoFrameskip-v0
+envid Atlantis-ramNoFrameskip-v0 is in gym_finish.list
+Atlantis-ramNoFrameskip-v4
+envid Atlantis-ramNoFrameskip-v4 is in gym_finish.list
+Atlantis-v0
+envid Atlantis-v0 is in gym_finish.list
+Atlantis-v4
+envid Atlantis-v4 is in gym_finish.list
+AtlantisDeterministic-v0
+envid AtlantisDeterministic-v0 is in gym_finish.list
+AtlantisDeterministic-v4
+envid AtlantisDeterministic-v4 is in gym_finish.list
+AtlantisNoFrameskip-v0
+envid AtlantisNoFrameskip-v0 is in gym_finish.list
+AtlantisNoFrameskip-v4
+envid AtlantisNoFrameskip-v4 is in gym_finish.list
+BankHeist-ram-v0
+envid BankHeist-ram-v0 is in gym_finish.list
+BankHeist-ram-v4
+envid BankHeist-ram-v4 is in gym_finish.list
+BankHeist-ramDeterministic-v0
+envid BankHeist-ramDeterministic-v0 is in gym_finish.list
+BankHeist-ramDeterministic-v4
+envid BankHeist-ramDeterministic-v4 is in gym_finish.list
+BankHeist-ramNoFrameskip-v0
+envid BankHeist-ramNoFrameskip-v0 is in gym_finish.list
+BankHeist-ramNoFrameskip-v4
+envid BankHeist-ramNoFrameskip-v4 is in gym_finish.list
+BankHeist-v0
+envid BankHeist-v0 is in gym_finish.list
+BankHeist-v4
+envid BankHeist-v4 is in gym_finish.list
+BankHeistDeterministic-v0
+envid BankHeistDeterministic-v0 is in gym_finish.list
+BankHeistDeterministic-v4
+envid BankHeistDeterministic-v4 is in gym_finish.list
+BankHeistNoFrameskip-v0
+envid BankHeistNoFrameskip-v0 is in gym_finish.list
+BankHeistNoFrameskip-v4
+envid BankHeistNoFrameskip-v4 is in gym_finish.list
+BattleZone-ram-v0
+envid BattleZone-ram-v0 is in gym_finish.list
+BattleZone-ram-v4
+envid BattleZone-ram-v4 is in gym_finish.list
+BattleZone-ramDeterministic-v0
+envid BattleZone-ramDeterministic-v0 is in gym_finish.list
+BattleZone-ramDeterministic-v4
+envid BattleZone-ramDeterministic-v4 is in gym_finish.list
+BattleZone-ramNoFrameskip-v0
+envid BattleZone-ramNoFrameskip-v0 is in gym_finish.list
+BattleZone-ramNoFrameskip-v4
+envid BattleZone-ramNoFrameskip-v4 is in gym_finish.list
+BattleZone-v0
+envid BattleZone-v0 is in gym_finish.list
+BattleZone-v4
+envid BattleZone-v4 is in gym_finish.list
+BattleZoneDeterministic-v0
+envid BattleZoneDeterministic-v0 is in gym_finish.list
+BattleZoneDeterministic-v4
+envid BattleZoneDeterministic-v4 is in gym_finish.list
+BattleZoneNoFrameskip-v0
+envid BattleZoneNoFrameskip-v0 is in gym_finish.list
+BattleZoneNoFrameskip-v4
+envid BattleZoneNoFrameskip-v4 is in gym_finish.list
+BeamRider-ram-v0
+envid BeamRider-ram-v0 is in gym_finish.list
+BeamRider-ram-v4
+envid BeamRider-ram-v4 is in gym_finish.list
+BeamRider-ramDeterministic-v0
+envid BeamRider-ramDeterministic-v0 is in gym_finish.list
+BeamRider-ramDeterministic-v4
+envid BeamRider-ramDeterministic-v4 is in gym_finish.list
+BeamRider-ramNoFrameskip-v0
+envid BeamRider-ramNoFrameskip-v0 is in gym_finish.list
+BeamRider-ramNoFrameskip-v4
+envid BeamRider-ramNoFrameskip-v4 is in gym_finish.list
+BeamRider-v0
+envid BeamRider-v0 is in gym_finish.list
+BeamRider-v4
+envid BeamRider-v4 is in gym_finish.list
+BeamRiderDeterministic-v0
+envid BeamRiderDeterministic-v0 is in gym_finish.list
+BeamRiderDeterministic-v4
+envid BeamRiderDeterministic-v4 is in gym_finish.list
+BeamRiderNoFrameskip-v0
+envid BeamRiderNoFrameskip-v0 is in gym_finish.list
+BeamRiderNoFrameskip-v4
+envid BeamRiderNoFrameskip-v4 is in gym_finish.list
+Berzerk-ram-v0
+envid Berzerk-ram-v0 is in gym_finish.list
+Berzerk-ram-v4
+envid Berzerk-ram-v4 is in gym_finish.list
+Berzerk-ramDeterministic-v0
+envid Berzerk-ramDeterministic-v0 is in gym_finish.list
+Berzerk-ramDeterministic-v4
+envid Berzerk-ramDeterministic-v4 is in gym_finish.list
+Berzerk-ramNoFrameskip-v0
+envid Berzerk-ramNoFrameskip-v0 is in gym_finish.list
+Berzerk-ramNoFrameskip-v4
+envid Berzerk-ramNoFrameskip-v4 is in gym_finish.list
+Berzerk-v0
+envid Berzerk-v0 is in gym_finish.list
+Berzerk-v4
+envid Berzerk-v4 is in gym_finish.list
+BerzerkDeterministic-v0
+envid BerzerkDeterministic-v0 is in gym_finish.list
+BerzerkDeterministic-v4
+envid BerzerkDeterministic-v4 is in gym_finish.list
+BerzerkNoFrameskip-v0
+envid BerzerkNoFrameskip-v0 is in gym_finish.list
+BerzerkNoFrameskip-v4
+envid BerzerkNoFrameskip-v4 is in gym_finish.list
+BipedalWalker-v2
+envid BipedalWalker-v2 is in gym_finish.list
+BipedalWalkerHardcore-v2
+envid BipedalWalkerHardcore-v2 is in gym_finish.list
+Blackjack-v0
+envid Blackjack-v0 is in gym_finish.list
+Bowling-ram-v0
+Starting a new trajectory
+Done after 1424 steps
+Bowling-ram-v4
+Starting a new trajectory
+Done after 1384 steps
+Bowling-ramDeterministic-v0
+Starting a new trajectory
+Done after 1080 steps
+Bowling-ramDeterministic-v4
+Starting a new trajectory
+Done after 1080 steps
+Bowling-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 4176 steps
+Bowling-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 4204 steps
+Bowling-v0
+Starting a new trajectory
+Done after 1424 steps
+Bowling-v4
+Starting a new trajectory
+Done after 1412 steps
+BowlingDeterministic-v0
+Starting a new trajectory
+Done after 1058 steps
+BowlingDeterministic-v4
+Starting a new trajectory
+Done after 1072 steps
+BowlingNoFrameskip-v0
+Starting a new trajectory
+Done after 4200 steps
+BowlingNoFrameskip-v4
+Starting a new trajectory
+Done after 4248 steps
+Boxing-ram-v0
+Starting a new trajectory
+Done after 1197 steps
+Boxing-ram-v4
+Starting a new trajectory
+Done after 1194 steps
+Boxing-ramDeterministic-v0
+Starting a new trajectory
+Done after 893 steps
+Boxing-ramDeterministic-v4
+Starting a new trajectory
+Done after 893 steps
+Boxing-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 3571 steps
+Boxing-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 3571 steps
+Boxing-v0
+Starting a new trajectory
+Done after 1187 steps
+Boxing-v4
+Starting a new trajectory
+Done after 1191 steps
+BoxingDeterministic-v0
+Starting a new trajectory
+Done after 893 steps
+BoxingDeterministic-v4
+Starting a new trajectory
+Done after 893 steps
+BoxingNoFrameskip-v0
+Starting a new trajectory
+Done after 3571 steps
+BoxingNoFrameskip-v4
+Starting a new trajectory
+Done after 3571 steps
+Breakout-ram-v0
+Starting a new trajectory
+Done after 185 steps
+Breakout-ram-v4
+Starting a new trajectory
+Done after 110 steps
+Breakout-ramDeterministic-v0
+Starting a new trajectory
+Done after 168 steps
+Breakout-ramDeterministic-v4
+Starting a new trajectory
+Done after 98 steps
+Breakout-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 313 steps
+Breakout-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 357 steps
+Breakout-v0
+Starting a new trajectory
+Done after 125 steps
+Breakout-v4
+Starting a new trajectory
+Done after 84 steps
+BreakoutDeterministic-v0
+Starting a new trajectory
+Done after 96 steps
+BreakoutDeterministic-v4
+Starting a new trajectory
+Done after 125 steps
+BreakoutNoFrameskip-v0
+Starting a new trajectory
+Done after 410 steps
+BreakoutNoFrameskip-v4
+Starting a new trajectory
+Done after 314 steps
+CarRacing-v0
+WARN: gym.spaces.Box autodetected dtype as <type 'numpy.float32'>. Please provide explicit dtype.
+Track generation: 1009..1271 -> 262-tiles track
+Starting a new trajectory
+Done after 500 steps
+Carnival-ram-v0
+Starting a new trajectory
+Done after 273 steps
+Carnival-ram-v4
+Starting a new trajectory
+Done after 229 steps
+Carnival-ramDeterministic-v0
+Starting a new trajectory
+Done after 164 steps
+Carnival-ramDeterministic-v4
+Starting a new trajectory
+Done after 313 steps
+Carnival-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 1091 steps
+Carnival-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 774 steps
+Carnival-v0
+Starting a new trajectory
+Done after 241 steps
+Carnival-v4
+Starting a new trajectory
+Done after 303 steps
+CarnivalDeterministic-v0
+Starting a new trajectory
+Done after 254 steps
+CarnivalDeterministic-v4
+Starting a new trajectory
+Done after 183 steps
+CarnivalNoFrameskip-v0
+Starting a new trajectory
+Done after 689 steps
+CarnivalNoFrameskip-v4
+Starting a new trajectory
+Done after 801 steps
+CartPole-v0
+WARN: gym.spaces.Box autodetected dtype as <type 'numpy.float32'>. Please provide explicit dtype.
+Starting a new trajectory
+WARN: You are calling 'step()' even though this environment has already returned done = True. You should always call 'reset()' once you receive 'done = True' -- any further steps are undefined behavior.
+Done after 11 steps
+CartPole-v1
+WARN: gym.spaces.Box autodetected dtype as <type 'numpy.float32'>. Please provide explicit dtype.
+Starting a new trajectory
+Done after 8 steps
+Centipede-ram-v0
+Starting a new trajectory
+Done after 417 steps
+Centipede-ram-v4
+Starting a new trajectory
+Done after 363 steps
+Centipede-ramDeterministic-v0
+Starting a new trajectory
+Done after 279 steps
+Centipede-ramDeterministic-v4
+Starting a new trajectory
+Done after 184 steps
+Centipede-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 1869 steps
+Centipede-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 1258 steps
+Centipede-v0
+Starting a new trajectory
+Done after 358 steps
+Centipede-v4
+Starting a new trajectory
+Done after 484 steps
+CentipedeDeterministic-v0
+Starting a new trajectory
+Done after 384 steps
+CentipedeDeterministic-v4
+Starting a new trajectory
+Done after 351 steps
+CentipedeNoFrameskip-v0
+Starting a new trajectory
+Done after 1088 steps
+CentipedeNoFrameskip-v4
+Starting a new trajectory
+Done after 2574 steps
+ChopperCommand-ram-v0
+Starting a new trajectory
+Done after 638 steps
+ChopperCommand-ram-v4
+Starting a new trajectory
+Done after 592 steps
+ChopperCommand-ramDeterministic-v0
+Starting a new trajectory
+Done after 322 steps
+ChopperCommand-ramDeterministic-v4
+Starting a new trajectory
+Done after 1334 steps
+ChopperCommand-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 1359 steps
+ChopperCommand-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 1936 steps
+ChopperCommand-v0
+Starting a new trajectory
+Done after 1323 steps
+ChopperCommand-v4
+Starting a new trajectory
+Done after 1089 steps
+ChopperCommandDeterministic-v0
+Starting a new trajectory
+Done after 332 steps
+ChopperCommandDeterministic-v4
+Starting a new trajectory
+Done after 364 steps
+ChopperCommandNoFrameskip-v0
+Starting a new trajectory
+Done after 1183 steps
+ChopperCommandNoFrameskip-v4
+Starting a new trajectory
+Done after 1262 steps
+CliffWalking-v0
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+Starting a new trajectory
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  x  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  x  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  x  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  x  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  x  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  x  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  x  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  x  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  x  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  x  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  x  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  x  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  x  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  x  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  x  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  x  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  x  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  x  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  x  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  x  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  x  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  x  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  x  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  x  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  x  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  x  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  x  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  x  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  x  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  x  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  x  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  x  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  x  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  x  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  x
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  x
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  x
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  x
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  x  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  x  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  x  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  x  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  x  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  x  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  x  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  x  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  x  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  x  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  x  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  x  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+x  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+x  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  x  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  x  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  x  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  x  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  x  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  x  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  x  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  x  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  x  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  x  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  x  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  x  o
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  x
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  x
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  x
+o  C  C  C  C  C  C  C  C  C  C  T
+
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  o  o  o  o  o  o  o  o  o  o  o
+o  C  C  C  C  C  C  C  C  C  C  x
+
+Done after 538 steps
+Copy-v0
+Total length of input instance: 3, step: 0
+==========================================
+Observation Tape    :   ACB  
+Output Tape         :   
+Targets             :   ACB  
+
+
+
+
+
+
+Starting a new trajectory
+Total length of input instance: 3, step: 2
+==========================================
+Observation Tape    :   ACB  
+Output Tape         :   AE
+Targets             :   ACB  
+
+Current reward      :   -0.500
+Cumulative reward   :   -1.000
+Action              :   Tuple(move over input: left,
+                              write to the output tape: True,
+                              prediction: E)
+Done after 1 steps
+CrazyClimber-ram-v0
+Starting a new trajectory
+Done after 1313 steps
+CrazyClimber-ram-v4
+Starting a new trajectory
+Done after 1672 steps
+CrazyClimber-ramDeterministic-v0
+Starting a new trajectory
+Done after 1204 steps
+CrazyClimber-ramDeterministic-v4
+Starting a new trajectory
+Done after 1451 steps
+CrazyClimber-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 5481 steps
+CrazyClimber-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 6899 steps
+CrazyClimber-v0
+Starting a new trajectory
+Done after 2340 steps
+CrazyClimber-v4
+Starting a new trajectory
+Done after 1984 steps
+CrazyClimberDeterministic-v0
+Starting a new trajectory
+Done after 1271 steps
+CrazyClimberDeterministic-v4
+Starting a new trajectory
+Done after 2363 steps
+CrazyClimberNoFrameskip-v0
+Starting a new trajectory
+Done after 9889 steps
+CrazyClimberNoFrameskip-v4
+Starting a new trajectory
+Done after 4820 steps
+CubeCrash-v0
+Starting a new trajectory
+Done after 15 steps
+CubeCrashScreenBecomesBlack-v0
+Starting a new trajectory
+Done after 27 steps
+CubeCrashSparse-v0
+Starting a new trajectory
+Done after 15 steps
+DemonAttack-ram-v0
+Starting a new trajectory
+Done after 741 steps
+DemonAttack-ram-v4
+Starting a new trajectory
+Done after 207 steps
+DemonAttack-ramDeterministic-v0
+Starting a new trajectory
+Done after 499 steps
+DemonAttack-ramDeterministic-v4
+Starting a new trajectory
+Done after 474 steps
+DemonAttack-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 4973 steps
+DemonAttack-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 1231 steps
+DemonAttack-v0
+Starting a new trajectory
+Done after 857 steps
+DemonAttack-v4
+Starting a new trajectory
+Done after 506 steps
+DemonAttackDeterministic-v0
+Starting a new trajectory
+Done after 360 steps
+DemonAttackDeterministic-v4
+Starting a new trajectory
+Done after 277 steps
+DemonAttackNoFrameskip-v0
+Starting a new trajectory
+Done after 2250 steps
+DemonAttackNoFrameskip-v4
+Starting a new trajectory
+Done after 2905 steps
+DoubleDunk-ram-v0
+Starting a new trajectory
+Done after 1372 steps
+DoubleDunk-ram-v4
+Starting a new trajectory
+Done after 1173 steps
+DoubleDunk-ramDeterministic-v0
+Starting a new trajectory
+Done after 807 steps
+DoubleDunk-ramDeterministic-v4
+Starting a new trajectory
+Done after 909 steps
+DoubleDunk-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 6083 steps
+DoubleDunk-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 4276 steps
+DoubleDunk-v0
+Starting a new trajectory
+Done after 1592 steps
+DoubleDunk-v4
+Starting a new trajectory
+Done after 1361 steps
+DoubleDunkDeterministic-v0
+Starting a new trajectory
+Done after 747 steps
+DoubleDunkDeterministic-v4
+Starting a new trajectory
+Done after 1001 steps
+DoubleDunkNoFrameskip-v0
+Starting a new trajectory
+Done after 5602 steps
+DoubleDunkNoFrameskip-v4
+Starting a new trajectory
+Done after 3889 steps
+DuplicatedInput-v0
+Total length of input instance: 2, step: 0
+==========================================
+Observation Tape    :   BB  
+Output Tape         :   
+Targets             :   B  
+
+
+
+
+
+
+Starting a new trajectory
+Total length of input instance: 2, step: 2
+==========================================
+Observation Tape    :   BB  
+Output Tape         :   
+Targets             :   B  
+
+Current reward      :   0.000
+Cumulative reward   :   0.000
+Action              :   Tuple(move over input: right,
+                              write to the output tape: False,
+                              prediction: B)
+WARN: It looks like you're calling step() even though this environment has already returned done=True. You should always call reset() once you receive done=True. Any further steps are undefined behaviour.
+Total length of input instance: 2, step: 4
+==========================================
+Traceback (most recent call last):
+  File "./sim_env", line 77, in <module>
+    env.render()
+  File "/git/OpenAI/gym/gym/core.py", line 275, in render
+    return self.env.render(mode, **kwargs)
+  File "/git/OpenAI/gym/gym/envs/algorithmic/algorithmic_env.py", line 134, in render
+    color = 'green' if pred == self.target[i] else 'red'
+IndexError: list index out of range
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ 
+
+DuplicatedInput-v0
+envid DuplicatedInput-v0 is in gym_unsupport list
+ElevatorAction-ram-v0
+Starting a new trajectory
+Done after 5000 steps
+ElevatorAction-ram-v4
+Starting a new trajectory
+Done after 50000 steps
+ElevatorAction-ramDeterministic-v0
+Starting a new trajectory
+Done after 50000 steps
+ElevatorAction-ramDeterministic-v4
+Starting a new trajectory
+Done after 50000 steps
+ElevatorAction-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 200000 steps
+ElevatorAction-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 200000 steps
+ElevatorAction-v0
+Starting a new trajectory
+Done after 5000 steps
+ElevatorAction-v4
+Starting a new trajectory
+Done after 50000 steps
+ElevatorActionDeterministic-v0
+Starting a new trajectory
+Done after 7291 steps
+ElevatorActionDeterministic-v4
+Starting a new trajectory
+Done after 50000 steps
+ElevatorActionNoFrameskip-v0
+Starting a new trajectory
+FishingDerby-ram-v0
+Starting a new trajectory
+Done after 1292 steps
+FishingDerby-ram-v4
+Starting a new trajectory
+Done after 1307 steps
+FishingDerby-ramDeterministic-v0
+Starting a new trajectory
+Done after 859 steps
+FishingDerby-ramDeterministic-v4
+Starting a new trajectory
+Done after 967 steps
+FishingDerby-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 3382 steps
+FishingDerby-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 3091 steps
+FishingDerby-v0
+Starting a new trajectory
+Done after 1132 steps
+FishingDerby-v4
+Starting a new trajectory
+Done after 1273 steps
+FishingDerbyDeterministic-v0
+Starting a new trajectory
+Done after 828 steps
+FishingDerbyDeterministic-v4
+Starting a new trajectory
+Done after 996 steps
+FishingDerbyNoFrameskip-v0
+Starting a new trajectory
+Done after 3646 steps
+FishingDerbyNoFrameskip-v4
+Starting a new trajectory
+Done after 3963 steps
+Freeway-ram-v0
+Starting a new trajectory
+Done after 1369 steps
+Freeway-ram-v4
+Starting a new trajectory
+Done after 1367 steps
+Freeway-ramDeterministic-v0
+Starting a new trajectory
+Done after 1024 steps
+Freeway-ramDeterministic-v4
+Starting a new trajectory
+Done after 1024 steps
+Freeway-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 4096 steps
+Freeway-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 4096 steps
+Freeway-v0
+Starting a new trajectory
+Done after 1378 steps
+Freeway-v4
+Starting a new trajectory
+Done after 1366 steps
+FreewayDeterministic-v0
+Starting a new trajectory
+Done after 1024 steps
+FreewayDeterministic-v4
+Starting a new trajectory
+Done after 1024 steps
+FreewayNoFrameskip-v0
+Starting a new trajectory
+Done after 4096 steps
+FreewayNoFrameskip-v4
+Starting a new trajectory
+Done after 4096 steps
+Frostbite-ram-v0
+Starting a new trajectory
+Done after 290 steps
+Frostbite-ram-v4
+Starting a new trajectory
+Done after 271 steps
+Frostbite-ramDeterministic-v0
+Starting a new trajectory
+Done after 144 steps
+Frostbite-ramDeterministic-v4
+Starting a new trajectory
+Done after 242 steps
+Frostbite-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 728 steps
+Frostbite-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 891 steps
+Frostbite-v0
+Starting a new trajectory
+Done after 331 steps
+Frostbite-v4
+Starting a new trajectory
+Done after 236 steps
+FrostbiteDeterministic-v0
+Starting a new trajectory
+Done after 222 steps
+FrostbiteDeterministic-v4
+Starting a new trajectory
+Done after 179 steps
+FrostbiteNoFrameskip-v0
+Starting a new trajectory
+Done after 886 steps
+FrostbiteNoFrameskip-v4
+Starting a new trajectory
+Done after 812 steps
+FrozenLake-v0
+
+SFFF
+FHFH
+FFFH
+HFFG
+Starting a new trajectory
+  (Down)
+SFFF
+FHFH
+FFFH
+HFFG
+  (Left)
+SFFF
+FHFH
+FFFH
+HFFG
+Done after 2 steps
+FrozenLake8x8-v0
+
+SFFFFFFF
+FFFFFFFF
+FFFHFFFF
+FFFFFHFF
+FFFHFFFF
+FHHFFFHF
+FHFFHFHF
+FFFHFFFG
+Starting a new trajectory
+  (Right)
+SFFFFFFF
+FFFFFFFF
+FFFHFFFF
+FFFFFHFF
+FFFHFFFF
+FHHFFFHF
+FHFFHFHF
+FFFHFFFG
+  (Right)
+SFFFFFFF
+FFFFFFFF
+FFFHFFFF
+FFFFFHFF
+FFFHFFFF
+FHHFFFHF
+FHFFHFHF
+FFFHFFFG
+  (Up)
+SFFFFFFF
+FFFFFFFF
+FFFHFFFF
+FFFFFHFF
+FFFHFFFF
+FHHFFFHF
+FHFFHFHF
+FFFHFFFG
+  (Down)
+SFFFFFFF
+FFFFFFFF
+FFFHFFFF
+FFFFFHFF
+FFFHFFFF
+FHHFFFHF
+FHFFHFHF
+FFFHFFFG
+  (Up)
+SFFFFFFF
+FFFFFFFF
+FFFHFFFF
+FFFFFHFF
+FFFHFFFF
+FHHFFFHF
+FHFFHFHF
+FFFHFFFG
+  (Right)
+SFFFFFFF
+FFFFFFFF
+FFFHFFFF
+FFFFFHFF
+FFFHFFFF
+FHHFFFHF
+FHFFHFHF
+FFFHFFFG
+  (Up)
+SFFFFFFF
+FFFFFFFF
+FFFHFFFF
+FFFFFHFF
+FFFHFFFF
+FHHFFFHF
+FHFFHFHF
+FFFHFFFG
+  (Up)
+SFFFFFFF
+FFFFFFFF
+FFFHFFFF
+FFFFFHFF
+FFFHFFFF
+FHHFFFHF
+FHFFHFHF
+FFFHFFFG
+  (Left)
+SFFFFFFF
+FFFFFFFF
+FFFHFFFF
+FFFFFHFF
+FFFHFFFF
+FHHFFFHF
+FHFFHFHF
+FFFHFFFG
+  (Right)
+SFFFFFFF
+FFFFFFFF
+FFFHFFFF
+FFFFFHFF
+FFFHFFFF
+FHHFFFHF
+FHFFHFHF
+FFFHFFFG
+  (Up)
+SFFFFFFF
+FFFFFFFF
+FFFHFFFF
+FFFFFHFF
+FFFHFFFF
+FHHFFFHF
+FHFFHFHF
+FFFHFFFG
+  (Up)
+SFFFFFFF
+FFFFFFFF
+FFFHFFFF
+FFFFFHFF
+FFFHFFFF
+FHHFFFHF
+FHFFHFHF
+FFFHFFFG
+  (Right)
+SFFFFFFF
+FFFFFFFF
+FFFHFFFF
+FFFFFHFF
+FFFHFFFF
+FHHFFFHF
+FHFFHFHF
+FFFHFFFG
+  (Down)
+SFFFFFFF
+FFFFFFFF
+FFFHFFFF
+FFFFFHFF
+FFFHFFFF
+FHHFFFHF
+FHFFHFHF
+FFFHFFFG
+  (Right)
+SFFFFFFF
+FFFFFFFF
+FFFHFFFF
+FFFFFHFF
+FFFHFFFF
+FHHFFFHF
+FHFFHFHF
+FFFHFFFG
+  (Up)
+SFFFFFFF
+FFFFFFFF
+FFFHFFFF
+FFFFFHFF
+FFFHFFFF
+FHHFFFHF
+FHFFHFHF
+FFFHFFFG
+  (Up)
+SFFFFFFF
+FFFFFFFF
+FFFHFFFF
+FFFFFHFF
+FFFHFFFF
+FHHFFFHF
+FHFFHFHF
+FFFHFFFG
+  (Up)
+SFFFFFFF
+FFFFFFFF
+FFFHFFFF
+FFFFFHFF
+FFFHFFFF
+FHHFFFHF
+FHFFHFHF
+FFFHFFFG
+  (Left)
+SFFFFFFF
+FFFFFFFF
+FFFHFFFF
+FFFFFHFF
+FFFHFFFF
+FHHFFFHF
+FHFFHFHF
+FFFHFFFG
+  (Left)
+SFFFFFFF
+FFFFFFFF
+FFFHFFFF
+FFFFFHFF
+FFFHFFFF
+FHHFFFHF
+FHFFHFHF
+FFFHFFFG
+  (Left)
+SFFFFFFF
+FFFFFFFF
+FFFHFFFF
+FFFFFHFF
+FFFHFFFF
+FHHFFFHF
+FHFFHFHF
+FFFHFFFG
+  (Left)
+SFFFFFFF
+FFFFFFFF
+FFFHFFFF
+FFFFFHFF
+FFFHFFFF
+FHHFFFHF
+FHFFHFHF
+FFFHFFFG
+  (Down)
+SFFFFFFF
+FFFFFFFF
+FFFHFFFF
+FFFFFHFF
+FFFHFFFF
+FHHFFFHF
+FHFFHFHF
+FFFHFFFG
+Done after 23 steps
+Gopher-ram-v0
+Starting a new trajectory
+Done after 1100 steps
+Gopher-ram-v4
+Starting a new trajectory
+Done after 687 steps
+Gopher-ramDeterministic-v0
+Starting a new trajectory
+Done after 701 steps
+Gopher-ramDeterministic-v4
+Starting a new trajectory
+Done after 484 steps
+Gopher-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 1272 steps
+Gopher-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 1919 steps
+Gopher-v0
+Starting a new trajectory
+Done after 654 steps
+Gopher-v4
+Starting a new trajectory
+Done after 770 steps
+GopherDeterministic-v0
+Starting a new trajectory
+Done after 368 steps
+GopherDeterministic-v4
+Starting a new trajectory
+Done after 415 steps
+GopherNoFrameskip-v0
+Starting a new trajectory
+Done after 2000 steps
+GopherNoFrameskip-v4
+Starting a new trajectory
+Done after 2193 steps
+Gravitar-ram-v0
+Starting a new trajectory
+Done after 369 steps
+Gravitar-ram-v4
+Starting a new trajectory
+Done after 374 steps
+Gravitar-ramDeterministic-v0
+Starting a new trajectory
+Done after 298 steps
+Gravitar-ramDeterministic-v4
+Starting a new trajectory
+Done after 319 steps
+Gravitar-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 1142 steps
+Gravitar-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 1116 steps
+Gravitar-v0
+Starting a new trajectory
+Done after 337 steps
+Gravitar-v4
+Starting a new trajectory
+Done after 412 steps
+GravitarDeterministic-v0
+Starting a new trajectory
+Done after 302 steps
+GravitarDeterministic-v4
+Starting a new trajectory
+Done after 343 steps
+GravitarNoFrameskip-v0
+Starting a new trajectory
+Done after 1215 steps
+GravitarNoFrameskip-v4
+Starting a new trajectory
+Done after 1220 steps
+GuessingGame-v0
+WARN: gym.spaces.Box autodetected dtype as <type 'numpy.float32'>. Please provide explicit dtype.
+Traceback (most recent call last):
+  File "./sim_env", line 44, in <module>
+    env.render(mode='human')
+  File "/git/OpenAI/gym/gym/core.py", line 275, in render
+    return self.env.render(mode, **kwargs)
+  File "/git/OpenAI/gym/gym/core.py", line 110, in render
+    raise NotImplementedError
+NotImplementedError
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ ./sim_env --once
+Jamesbond-ram-v0
+Starting a new trajectory
+Done after 401 steps
+Jamesbond-ram-v4
+Starting a new trajectory
+Done after 332 steps
+Jamesbond-ramDeterministic-v0
+Starting a new trajectory
+Done after 240 steps
+Jamesbond-ramDeterministic-v4
+Starting a new trajectory
+Done after 271 steps
+Jamesbond-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 1005 steps
+Jamesbond-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 986 steps
+Jamesbond-v0
+Starting a new trajectory
+Done after 315 steps
+Jamesbond-v4
+Starting a new trajectory
+Done after 268 steps
+JamesbondDeterministic-v0
+Starting a new trajectory
+Done after 238 steps
+JamesbondDeterministic-v4
+Starting a new trajectory
+Done after 252 steps
+JamesbondNoFrameskip-v0
+Starting a new trajectory
+Done after 954 steps
+JamesbondNoFrameskip-v4
+Starting a new trajectory
+Done after 951 steps
+JourneyEscape-ram-v0
+Starting a new trajectory
+Done after 490 steps
+JourneyEscape-ram-v4
+Starting a new trajectory
+Done after 492 steps
+JourneyEscape-ramDeterministic-v0
+Starting a new trajectory
+Done after 369 steps
+JourneyEscape-ramDeterministic-v4
+Starting a new trajectory
+Done after 369 steps
+JourneyEscape-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 1475 steps
+JourneyEscape-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 1475 steps
+JourneyEscape-v0
+Starting a new trajectory
+Done after 490 steps
+JourneyEscape-v4
+Starting a new trajectory
+Done after 496 steps
+JourneyEscapeDeterministic-v0
+Starting a new trajectory
+Done after 369 steps
+JourneyEscapeDeterministic-v4
+Starting a new trajectory
+Done after 369 steps
+JourneyEscapeNoFrameskip-v0
+Starting a new trajectory
+Done after 1475 steps
+JourneyEscapeNoFrameskip-v4
+Starting a new trajectory
+Done after 1475 steps
+Kangaroo-ram-v0
+Starting a new trajectory
+Done after 203 steps
+Kangaroo-ram-v4
+Starting a new trajectory
+Done after 244 steps
+Kangaroo-ramDeterministic-v0
+Starting a new trajectory
+Done after 194 steps
+Kangaroo-ramDeterministic-v4
+Starting a new trajectory
+Done after 238 steps
+Kangaroo-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 1094 steps
+Kangaroo-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 1236 steps
+Kangaroo-v0
+Starting a new trajectory
+Done after 320 steps
+Kangaroo-v4
+Starting a new trajectory
+Done after 234 steps
+KangarooDeterministic-v0
+Starting a new trajectory
+Done after 145 steps
+KangarooDeterministic-v4
+Starting a new trajectory
+Done after 142 steps
+KangarooNoFrameskip-v0
+Starting a new trajectory
+Done after 961 steps
+KangarooNoFrameskip-v4
+Starting a new trajectory
+Done after 607 steps
+KellyCoinflip-v0
+WARN: gym.spaces.Box autodetected dtype as <type 'numpy.float32'>. Please provide explicit dtype.
+('Current wealth: ', 25.0, '; Rounds left: ', 300)
+Starting a new trajectory
+('Current wealth: ', 100.0, '; Rounds left: ', 298)
+('Current wealth: ', 0.0, '; Rounds left: ', 297)
+Done after 2 steps
+KellyCoinflipGeneralized-v0
+WARN: gym.spaces.Box autodetected dtype as <type 'numpy.float32'>. Please provide explicit dtype.
+WARN: gym.spaces.Box autodetected dtype as <type 'numpy.float32'>. Please provide explicit dtype.
+WARN: gym.spaces.Box autodetected dtype as <type 'numpy.float32'>. Please provide explicit dtype.
+WARN: gym.spaces.Box autodetected dtype as <type 'numpy.float32'>. Please provide explicit dtype.
+('Current wealth: ', 25.0, '; Rounds left: ', 340, '; True edge: ', 0.680471468015227, '; True max wealth: ', 201.0, '; True stopping time: ', 340, '; Rounds left: ', 340)
+Starting a new trajectory
+('Current wealth: ', 23.32, '; Rounds left: ', 338, '; True edge: ', 0.680471468015227, '; True max wealth: ', 201.0, '; True stopping time: ', 340, '; Rounds left: ', 338)
+('Current wealth: ', 0.0, '; Rounds left: ', 337, '; True edge: ', 0.680471468015227, '; True max wealth: ', 201.0, '; True stopping time: ', 340, '; Rounds left: ', 337)
+Done after 2 steps
+Krull-ram-v0
+Starting a new trajectory
+Done after 994 steps
+Krull-ram-v4
+Starting a new trajectory
+Done after 974 steps
+Krull-ramDeterministic-v0
+Starting a new trajectory
+Done after 726 steps
+Krull-ramDeterministic-v4
+Starting a new trajectory
+Done after 1020 steps
+Krull-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 2974 steps
+Krull-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 2811 steps
+Krull-v0
+Starting a new trajectory
+Done after 743 steps
+Krull-v4
+Starting a new trajectory
+Done after 735 steps
+KrullDeterministic-v0
+Starting a new trajectory
+Done after 765 steps
+KrullDeterministic-v4
+Starting a new trajectory
+Done after 717 steps
+KrullNoFrameskip-v0
+Starting a new trajectory
+Done after 2937 steps
+KrullNoFrameskip-v4
+Starting a new trajectory
+Done after 1675 steps
+KungFuMaster-ram-v0
+Starting a new trajectory
+Done after 552 steps
+KungFuMaster-ram-v4
+Starting a new trajectory
+Done after 460 steps
+KungFuMaster-ramDeterministic-v0
+Starting a new trajectory
+Done after 388 steps
+KungFuMaster-ramDeterministic-v4
+Starting a new trajectory
+Done after 356 steps
+KungFuMaster-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 2272 steps
+KungFuMaster-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 2697 steps
+KungFuMaster-v0
+Starting a new trajectory
+Done after 590 steps
+KungFuMaster-v4
+Starting a new trajectory
+Done after 651 steps
+KungFuMasterDeterministic-v0
+Starting a new trajectory
+Done after 399 steps
+KungFuMasterDeterministic-v4
+Starting a new trajectory
+Done after 352 steps
+KungFuMasterNoFrameskip-v0
+Starting a new trajectory
+Done after 2341 steps
+KungFuMasterNoFrameskip-v4
+Starting a new trajectory
+Done after 1886 steps
+LunarLander-v2
+Starting a new trajectory
+Done after 32 steps
+LunarLanderContinuous-v2
+Starting a new trajectory
+Done after 45 steps
+MemorizeDigits-v0
+Starting a new trajectory
+Done after 15 steps
+MontezumaRevenge-ram-v0
+Starting a new trajectory
+Done after 241 steps
+MontezumaRevenge-ram-v4
+Starting a new trajectory
+Done after 262 steps
+MontezumaRevenge-ramDeterministic-v0
+Starting a new trajectory
+Done after 193 steps
+MontezumaRevenge-ramDeterministic-v4
+Starting a new trajectory
+Done after 159 steps
+MontezumaRevenge-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 2783 steps
+MontezumaRevenge-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 681 steps
+MontezumaRevenge-v0
+Starting a new trajectory
+Done after 710 steps
+MontezumaRevenge-v4
+Starting a new trajectory
+Done after 328 steps
+MontezumaRevengeDeterministic-v0
+Starting a new trajectory
+Done after 342 steps
+MontezumaRevengeDeterministic-v4
+Starting a new trajectory
+Done after 216 steps
+MontezumaRevengeNoFrameskip-v0
+Starting a new trajectory
+Done after 975 steps
+MontezumaRevengeNoFrameskip-v4
+Starting a new trajectory
+Done after 2651 steps
+MountainCar-v0
+WARN: gym.spaces.Box autodetected dtype as <type 'numpy.float32'>. Please provide explicit dtype.
+Starting a new trajectory
+Done after 100 steps
+MountainCarContinuous-v0
+WARN: gym.spaces.Box autodetected dtype as <type 'numpy.float32'>. Please provide explicit dtype.
+WARN: gym.spaces.Box autodetected dtype as <type 'numpy.float32'>. Please provide explicit dtype.
+Starting a new trajectory
+Done after 500 steps
+MsPacman-ram-v0
+Starting a new trajectory
+Done after 490 steps
+MsPacman-ram-v4
+Starting a new trajectory
+Done after 350 steps
+MsPacman-ramDeterministic-v0
+Starting a new trajectory
+Done after 222 steps
+MsPacman-ramDeterministic-v4
+Starting a new trajectory
+Done after 202 steps
+MsPacman-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 1501 steps
+MsPacman-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 1105 steps
+MsPacman-v0
+Starting a new trajectory
+Done after 363 steps
+MsPacman-v4
+Starting a new trajectory
+Done after 252 steps
+MsPacmanDeterministic-v0
+Starting a new trajectory
+Done after 247 steps
+MsPacmanDeterministic-v4
+Starting a new trajectory
+Done after 254 steps
+MsPacmanNoFrameskip-v0
+Starting a new trajectory
+Done after 845 steps
+MsPacmanNoFrameskip-v4
+Starting a new trajectory
+Done after 1041 steps
+NChain-v0
+Traceback (most recent call last):
+  File "./sim_env", line 44, in <module>
+    env.render(mode='human')
+  File "/git/OpenAI/gym/gym/core.py", line 275, in render
+    return self.env.render(mode, **kwargs)
+  File "/git/OpenAI/gym/gym/core.py", line 110, in render
+    raise NotImplementedError
+NotImplementedError
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$
+QbertDeterministic-v0
+envid QbertDeterministic-v0 is in gym_finish.list
+QbertDeterministic-v4
+envid QbertDeterministic-v4 is in gym_finish.list
+QbertNoFrameskip-v0
+envid QbertNoFrameskip-v0 is in gym_finish.list
+QbertNoFrameskip-v4
+envid QbertNoFrameskip-v4 is in gym_finish.list
+Reacher-v2
+envid Reacher-v2 is in gym_unsupport list
+RepeatCopy-v0
+Total length of input instance: 4, step: 0
+==========================================
+Observation Tape    :   BCBC  
+Output Tape         :   
+Targets             :   BCBCCBCBBCBC  
+
+
+
+
+
+
+Starting a new trajectory
+Total length of input instance: 4, step: 2
+==========================================
+Observation Tape    :   BCBC  
+Output Tape         :   BA
+Targets             :   BCBCCBCBBCBC  
+
+Current reward      :   -0.500
+Cumulative reward   :   -1.000
+Action              :   Tuple(move over input: left,
+                              write to the output tape: True,
+                              prediction: A)
+Done after 1 steps
+Reverse-v0
+Total length of input instance: 1, step: 0
+==========================================
+Observation Tape    :   B  
+Output Tape         :   
+Targets             :   B  
+
+
+
+
+
+
+Starting a new trajectory
+WARN: It looks like you're calling step() even though this environment has already returned done=True. You should always call reset() once you receive done=True. Any further steps are undefined behaviour.
+Total length of input instance: 1, step: 2
+==========================================
+Traceback (most recent call last):
+  File "./sim_env", line 75, in <module>
+    env.render()
+  File "/git/OpenAI/gym/gym/core.py", line 275, in render
+    return self.env.render(mode, **kwargs)
+  File "/git/OpenAI/gym/gym/envs/algorithmic/algorithmic_env.py", line 134, in render
+    color = 'green' if pred == self.target[i] else 'red'
+IndexError: list index out of range
+Roulette-v0
+envid Roulette-v0 is in gym_unsupport list
+Seaquest-ram-v0
+Starting a new trajectory
+Done after 409 steps
+Seaquest-ram-v4
+Starting a new trajectory
+Done after 398 steps
+Seaquest-ramDeterministic-v0
+Starting a new trajectory
+Done after 329 steps
+Seaquest-ramDeterministic-v4
+Starting a new trajectory
+Done after 237 steps
+Seaquest-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 869 steps
+Seaquest-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 883 steps
+Seaquest-v0
+Starting a new trajectory
+Done after 313 steps
+Seaquest-v4
+Starting a new trajectory
+Done after 261 steps
+SeaquestDeterministic-v0
+Starting a new trajectory
+Done after 237 steps
+SeaquestDeterministic-v4
+Starting a new trajectory
+Done after 177 steps
+SeaquestNoFrameskip-v0
+Starting a new trajectory
+Done after 833 steps
+SeaquestNoFrameskip-v4
+Starting a new trajectory
+Done after 2065 steps
+Skiing-ram-v0
+Starting a new trajectory
+Done after 706 steps
+Skiing-ram-v4
+Starting a new trajectory
+Done after 857 steps
+Skiing-ramDeterministic-v0
+Starting a new trajectory
+Done after 725 steps
+Skiing-ramDeterministic-v4
+Starting a new trajectory
+Done after 892 steps
+Skiing-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 2263 steps
+Skiing-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 2699 steps
+Skiing-v0
+Starting a new trajectory
+Done after 851 steps
+Skiing-v4
+Starting a new trajectory
+Done after 977 steps
+SkiingDeterministic-v0
+Starting a new trajectory
+Done after 559 steps
+SkiingDeterministic-v4
+Starting a new trajectory
+Done after 647 steps
+SkiingNoFrameskip-v0
+Starting a new trajectory
+Done after 3004 steps
+SkiingNoFrameskip-v4
+Starting a new trajectory
+Done after 2455 steps
+Solaris-ram-v0
+Starting a new trajectory
+Done after 5000 steps
+Solaris-ram-v4
+Starting a new trajectory
+Done after 3772 steps
+Solaris-ramDeterministic-v0
+Starting a new trajectory
+Done after 3943 steps
+Solaris-ramDeterministic-v4
+Starting a new trajectory
+Done after 3577 steps
+Solaris-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 11984 steps
+Solaris-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 7661 steps
+Solaris-v0
+Starting a new trajectory
+Done after 5000 steps
+Solaris-v4
+Starting a new trajectory
+Done after 4800 steps
+SolarisDeterministic-v0
+Starting a new trajectory
+Done after 2903 steps
+SolarisDeterministic-v4
+Starting a new trajectory
+Done after 2791 steps
+SolarisNoFrameskip-v0
+Starting a new trajectory
+Done after 15297 steps
+SolarisNoFrameskip-v4
+Starting a new trajectory
+Done after 13917 steps
+SpaceInvaders-ram-v0
+Starting a new trajectory
+Done after 325 steps
+SpaceInvaders-ram-v4
+Starting a new trajectory
+Done after 370 steps
+SpaceInvaders-ramDeterministic-v0
+Starting a new trajectory
+Done after 243 steps
+SpaceInvaders-ramDeterministic-v4
+Starting a new trajectory
+Done after 247 steps
+SpaceInvaders-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 814 steps
+SpaceInvaders-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 647 steps
+SpaceInvaders-v0
+Starting a new trajectory
+Done after 285 steps
+SpaceInvaders-v4
+Starting a new trajectory
+Done after 481 steps
+SpaceInvadersDeterministic-v0
+Starting a new trajectory
+Done after 427 steps
+SpaceInvadersDeterministic-v4
+Starting a new trajectory
+Done after 265 steps
+SpaceInvadersNoFrameskip-v0
+Starting a new trajectory
+Done after 1129 steps
+SpaceInvadersNoFrameskip-v4
+Starting a new trajectory
+Done after 1098 steps
+StarGunner-ram-v0
+Starting a new trajectory
+Done after 612 steps
+StarGunner-ram-v4
+Starting a new trajectory
+Done after 753 steps
+StarGunner-ramDeterministic-v0
+Starting a new trajectory
+Done after 632 steps
+StarGunner-ramDeterministic-v4
+Starting a new trajectory
+Done after 776 steps
+StarGunner-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 2408 steps
+StarGunner-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 5114 steps
+StarGunner-v0
+Starting a new trajectory
+Done after 692 steps
+StarGunner-v4
+Starting a new trajectory
+Done after 1113 steps
+StarGunnerDeterministic-v0
+Starting a new trajectory
+Done after 303 steps
+StarGunnerDeterministic-v4
+Starting a new trajectory
+Done after 389 steps
+StarGunnerNoFrameskip-v0
+Starting a new trajectory
+Done after 1381 steps
+StarGunnerNoFrameskip-v4
+Starting a new trajectory
+Done after 1573 steps
+Striker-v2
+Traceback (most recent call last):
+  File "./sim_env", line 35, in <module>
+    env = envs.make(envid)
+  File "/git/OpenAI/gym/gym/envs/registration.py", line 167, in make
+    return registry.make(id)
+  File "/git/OpenAI/gym/gym/envs/registration.py", line 119, in make
+    env = spec.make()
+  File "/git/OpenAI/gym/gym/envs/registration.py", line 85, in make
+    cls = load(self._entry_point)
+  File "/git/OpenAI/gym/gym/envs/registration.py", line 14, in load
+    result = entry_point.load(False)
+  File "/home/joe/.local/lib/python2.7/site-packages/pkg_resources/__init__.py", line 2325, in load
+    return self.resolve()
+  File "/home/joe/.local/lib/python2.7/site-packages/pkg_resources/__init__.py", line 2331, in resolve
+    module = __import__(self.module_name, fromlist=['__name__'], level=0)
+  File "/git/OpenAI/gym/gym/envs/mujoco/__init__.py", line 1, in <module>
+    from gym.envs.mujoco.mujoco_env import MujocoEnv
+  File "/git/OpenAI/gym/gym/envs/mujoco/mujoco_env.py", line 13, in <module>
+    raise error.DependencyNotInstalled("{}. (HINT: you need to install mujoco_py, and also perform the setup instructions here: https://github.com/openai/mujoco-py/.)".format(e))
+gym.error.DependencyNotInstalled: No module named machinery. (HINT: you need to install mujoco_py, and also perform the setup instructions here: https://github.com/openai/mujoco-py/.)
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$
+WizardOfWor-ram-v0
+Starting a new trajectory
+Done after 248 steps
+WizardOfWor-ram-v4
+Starting a new trajectory
+Done after 665 steps
+WizardOfWor-ramDeterministic-v0
+Starting a new trajectory
+Done after 757 steps
+WizardOfWor-ramDeterministic-v4
+Starting a new trajectory
+Done after 998 steps
+WizardOfWor-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 4555 steps
+WizardOfWor-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 3565 steps
+WizardOfWor-v0
+Starting a new trajectory
+Done after 1431 steps
+WizardOfWor-v4
+Starting a new trajectory
+Done after 224 steps
+WizardOfWorDeterministic-v0
+Starting a new trajectory
+Done after 625 steps
+WizardOfWorDeterministic-v4
+Starting a new trajectory
+Done after 1067 steps
+WizardOfWorNoFrameskip-v0
+Starting a new trajectory
+Done after 3132 steps
+WizardOfWorNoFrameskip-v4
+Starting a new trajectory
+Done after 1269 steps
+YarsRevenge-ram-v0
+Starting a new trajectory
+Done after 617 steps
+YarsRevenge-ram-v4
+Starting a new trajectory
+Done after 517 steps
+YarsRevenge-ramDeterministic-v0
+Starting a new trajectory
+Done after 316 steps
+YarsRevenge-ramDeterministic-v4
+Starting a new trajectory
+Done after 596 steps
+YarsRevenge-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 2126 steps
+YarsRevenge-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 1838 steps
+YarsRevenge-v0
+Starting a new trajectory
+Done after 592 steps
+YarsRevenge-v4
+Starting a new trajectory
+Done after 418 steps
+YarsRevengeDeterministic-v0
+Starting a new trajectory
+Done after 444 steps
+YarsRevengeDeterministic-v4
+Starting a new trajectory
+Done after 572 steps
+YarsRevengeNoFrameskip-v0
+Starting a new trajectory
+Done after 1678 steps
+YarsRevengeNoFrameskip-v4
+Starting a new trajectory
+Done after 1742 steps
+Zaxxon-ram-v0
+Starting a new trajectory
+Done after 587 steps
+Zaxxon-ram-v4
+Starting a new trajectory
+Done after 592 steps
+Zaxxon-ramDeterministic-v0
+Starting a new trajectory
+Done after 444 steps
+Zaxxon-ramDeterministic-v4
+Starting a new trajectory
+Done after 444 steps
+Zaxxon-ramNoFrameskip-v0
+Starting a new trajectory
+Done after 1774 steps
+Zaxxon-ramNoFrameskip-v4
+Starting a new trajectory
+Done after 1774 steps
+Zaxxon-v0
+Starting a new trajectory
+Done after 582 steps
+Zaxxon-v4
+Starting a new trajectory
+Done after 588 steps
+ZaxxonDeterministic-v0
+Starting a new trajectory
+Done after 444 steps
+ZaxxonDeterministic-v4
+Starting a new trajectory
+Done after 444 steps
+ZaxxonNoFrameskip-v0
+Starting a new trajectory
+Done after 1774 steps
+ZaxxonNoFrameskip-v4
+Starting a new trajectory
+Done after 1774 steps
+joe@joe-ThinkPad-X201:/git/OpenAI/Test/All$ 
+ 
