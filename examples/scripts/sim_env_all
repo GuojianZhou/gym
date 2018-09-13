@@ -13,10 +13,8 @@ for envid in sorted(envids):
     envdones = [line[:-1] for line in finish_file]
     if envid in envdones:
         print ('envid %s is in gym_finish.list' % envid)
-        continue;
-    else:
-        finish_file.write(envid + '\n')
         finish_file.close()
+        continue;
     unsupport_file = open('./files/gym_unsupport.list','a+')
     envunsupports = [line[:-1] for line in unsupport_file]
     if envid in envunsupports:
@@ -81,4 +79,6 @@ for envid in sorted(envids):
             break
         else:
             raw_input("Press enter to continue")
+    finish_file.write(envid + '\n')
+    finish_file.close()
     env.close()
